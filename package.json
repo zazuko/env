@@ -2,7 +2,8 @@
   "name": "zazuko-env",
   "private": true,
   "scripts": {
-    "lint": "eslint . --ext .ts --quiet --ignore-path .gitignore"
+    "lint": "eslint . --ext .ts --quiet --ignore-path .gitignore",
+    "release": "changeset publish"
   },
   "author": "Zazuko GmbH",
   "license": "MIT",
@@ -10,13 +11,14 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@tpluscode/eslint-config": "^0.4.4",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "eslint-import-resolver-typescript": "^3.5.5",
-    "typescript": "^5.1.6",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "typescript": "^5.1.6"
   },
   "lint-staged": {
     "*.js": [
