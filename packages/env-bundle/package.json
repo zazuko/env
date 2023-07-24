@@ -14,8 +14,9 @@
   "author": "Zazuko GmbH",
   "license": "MIT",
   "devDependencies": {
-    "@zazuko/env": "^0.0.0",
+    "@types/rdfjs__formats-common": "^3.1.0",
     "@rdfjs/formats-common": "^3.1.0",
+    "@zazuko/env": "^0.0.0",
     "esbuild": "^0.18.14"
   }
 }

@@ -2,7 +2,11 @@
   "name": "@zazuko/env",
   "version": "0.0.0",
   "description": "Zazuko's RDF/JS Environment",
+  "type": "module",
   "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
   "keywords": [
     "rdfjs",
     "environment"
