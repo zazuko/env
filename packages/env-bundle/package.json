@@ -1,0 +1,21 @@
+{
+  "name": "@zazuko/env-bundle",
+  "version": "0.0.0",
+  "description": "RDF/JS Environment pre-bundled for CJS",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "esbuild index.ts --bundle --platform=node --format=cjs --sourcemap=external --outfile=index.js"
+  },
+  "keywords": [
+    "rdfjs",
+    "environment"
+  ],
+  "author": "Zazuko GmbH",
+  "license": "MIT",
+  "devDependencies": {
+    "@zazuko/env": "^0.0.0",
+    "@rdfjs/formats-common": "^3.1.0",
+    "esbuild": "^0.18.14"
+  }
+}
