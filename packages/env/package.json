@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "prepublishOnly": "tsc"
+    "prepack": "tsc"
   },
   "keywords": [
     "rdfjs",
@@ -19,8 +19,8 @@
     "clownface": "^2.0.0"
   },
   "devDependencies": {
-    "@types/clownface": "^1.0.0",
-    "@types/rdfjs__environment": "^0.1.4",
+    "@types/clownface": "^2.0.0",
+    "@types/rdfjs__environment": "^0.1.6",
     "@types/rdfjs__formats-common": "^3.1.0"
   }
 }
