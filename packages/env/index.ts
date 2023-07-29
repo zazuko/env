@@ -6,8 +6,8 @@ import FormatsFactory from '@rdfjs/environment/FormatsFactory.js'
 import NsBuildersFactory from '@tpluscode/rdf-ns-builders'
 import ClownfaceFactory from 'clownface/Factory.js'
 
-interface FactoryConstructor<F = {}> {
-  new(...args: any[]): F
+interface FactoryConstructor<F = object> {
+  new(...args: unknown[]): F
 }
 
 export function create<F extends FactoryConstructor>(...additionalFactories: F[]) {
