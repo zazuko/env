@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "prepack": "tsc"
+    "prepack": "tsc",
+    "test": "mocha --package ../../package.json"
   },
   "keywords": [
     "rdfjs",
@@ -19,8 +20,14 @@
     "clownface": "^2.0.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.5",
     "@types/clownface": "^2.0.0",
+    "@types/mocha": "^10.0.1",
     "@types/rdfjs__environment": "^0.1.6",
-    "@types/rdfjs__formats-common": "^3.1.0"
+    "@types/rdfjs__formats-common": "^3.1.0",
+    "@types/rdf-ext": "^2.2.2",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "rdf-ext": "^2.2.0"
   }
 }
