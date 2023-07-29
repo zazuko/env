@@ -6,6 +6,8 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true
   }
 }
