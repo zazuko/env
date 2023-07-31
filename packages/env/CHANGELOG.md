@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.1.0
+
+### Minor Changes
+
+- 87efd68: Added term set and term map
+
 ## 1.0.1
 
 ### Patch Changes
