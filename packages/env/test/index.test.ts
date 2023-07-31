@@ -64,6 +64,14 @@ describe('@zazuko/env', () => {
       it('includes ns builders factory', () => {
         expect(env.ns.schema.Person).to.deep.eq($rdf.namedNode('http://schema.org/Person'))
       })
+
+      it('includes term set factory', () => {
+        expect(env.termSet()).to.be.ok
+      })
+
+      it('includes term map factory', () => {
+        expect(env.termMap()).to.be.ok
+      })
     }
   })
 })
