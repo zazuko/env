@@ -1,5 +1,15 @@
 # @zazuko/env-bundle
 
+## 1.1.0
+
+### Minor Changes
+
+- bcbc773: Added fetch factory
+
+### Patch Changes
+
+- bcbc773: Missing export of types
+
 ## 1.0.2
 
 ### Patch Changes

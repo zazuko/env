@@ -1,6 +1,6 @@
 {
   "name": "@zazuko/env-bundle",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "RDF/JS Environment pre-bundled for CJS",
   "main": "index.js",
   "scripts": {
