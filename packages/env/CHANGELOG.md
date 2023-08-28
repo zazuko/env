@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.1.1
+
+### Patch Changes
+
+- 538aeaa: Include required types packages
+
 ## 1.1.0
 
 ### Minor Changes
