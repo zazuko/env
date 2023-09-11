@@ -22,3 +22,5 @@ export function create<F extends FactoryConstructor>(...additionalFactories: F[]
 }
 
 export default create()
+
+export type DefaultEnv = ReturnType<typeof create>
