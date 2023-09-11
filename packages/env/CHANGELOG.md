@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.2.0
+
+### Minor Changes
+
+- 6007138: Export the type of default env
+
 ## 1.1.1
 
 ### Patch Changes
