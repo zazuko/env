@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.3.0
+
+### Minor Changes
+
+- 4d72579: Export helper type for creating derived environments
+
 ## 1.2.0
 
 ### Minor Changes
