@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.3.1
+
+### Patch Changes
+
+- 7b3a1cb: Depending on types directly may cause TS issues
+
 ## 1.3.0
 
 ### Minor Changes
