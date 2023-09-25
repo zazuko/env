@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.3.2
+
+### Patch Changes
+
+- f1ba616: Updates to `clownface@2.0.1` which fix a blank node clash bug
+
 ## 1.3.1
 
 ### Patch Changes
