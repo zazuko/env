@@ -1,6 +1,6 @@
 {
   "name": "@zazuko/env",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Zazuko's RDF/JS Environment",
   "type": "module",
   "main": "index.js",
