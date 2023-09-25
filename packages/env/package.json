@@ -17,7 +17,7 @@
   "dependencies": {
     "@rdfjs/environment": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
-    "clownface": "^2.0.0"
+    "clownface": "^2.0.1"
   },
   "peerDependencies": {
     "@types/clownface": "^2.0.0",
