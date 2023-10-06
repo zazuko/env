@@ -1,6 +1,6 @@
 import DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import ext from 'rdf-dataset-ext'
-import { Quad } from '@rdfjs/types'
+import type { Quad } from '@rdfjs/types'
 
 type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
 
@@ -21,7 +21,7 @@ export class Dataset extends DatasetCore {
     return ext.fromStream(this, stream)
   }
 
-  map<T>(callback: (quad: Quad, dataset: Dataset) => Quad) {
+  map(callback: (quad: Quad, dataset: Dataset) => Quad) {
     return new Dataset([...this].map(quad => callback(quad, this)))
   }
 
