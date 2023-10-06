@@ -1,5 +1,11 @@
 # @zazuko/env-bundle
 
+## 1.1.1
+
+### Patch Changes
+
+- dc6e936: NPM meta
+
 ## 1.1.0
 
 ### Minor Changes

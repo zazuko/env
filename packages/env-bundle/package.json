@@ -1,6 +1,6 @@
 {
   "name": "@zazuko/env-bundle",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "RDF/JS Environment pre-bundled for CJS",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@rdfjs/fetch-lite": "^3.2.1",
     "@rdfjs/formats-common": "^3.1.0",
     "@types/rdfjs__formats-common": "^3.1.0",
-    "@zazuko/env": "^1.0.1",
+    "@zazuko/env": "^1.4.1",
     "esbuild": "^0.18.14"
   }
 }

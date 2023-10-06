@@ -1,5 +1,12 @@
 # @zazuko/env
 
+## 1.4.1
+
+### Patch Changes
+
+- 795d163: Wrongly named `Dateset#fromStream` which is now `Dataset#import`
+- dc6e936: NPM meta
+
 ## 1.4.0
 
 ### Minor Changes
