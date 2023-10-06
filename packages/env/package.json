@@ -8,6 +8,13 @@
     "prepack": "tsc",
     "test": "mocha --package ../../package.json"
   },
+  "repository": {
+    "url": "git://github.com/zazuko/env.git",
+    "directory": "packages/env"
+  },
+  "bugs": {
+    "url": "https://github.com/zazuko/env/issues"
+  },
   "keywords": [
     "rdfjs",
     "environment"

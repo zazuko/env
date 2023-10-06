@@ -11,6 +11,13 @@
     "rdfjs",
     "environment"
   ],
+  "repository": {
+    "url": "git://github.com/zazuko/env.git",
+    "directory": "packages/env-bundle"
+  },
+  "bugs": {
+    "url": "https://github.com/zazuko/env/issues"
+  },
   "author": "Zazuko GmbH",
   "license": "MIT",
   "devDependencies": {
