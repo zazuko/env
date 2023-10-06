@@ -16,7 +16,7 @@ export class Dataset extends DatasetCore {
     return ext.equals(this, other)
   }
 
-  fromStream(...[stream]: Rest<Parameters<typeof ext.fromStream>>) {
+  import(...[stream]: Rest<Parameters<typeof ext.fromStream>>) {
     return ext.fromStream(this, stream)
   }
 

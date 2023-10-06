@@ -116,7 +116,7 @@ describe('@zazuko/env', () => {
           const o = env.blankNode()
           dataset.add(env.quad(s, p, o))
 
-          const fromStream = await env.dataset().fromStream(dataset.toStream())
+          const fromStream = await env.dataset().import(dataset.toStream())
 
           // then
           expect(fromStream.equals(dataset)).to.be.true
