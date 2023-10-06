@@ -1,5 +1,11 @@
 # @zazuko/env-bundle
 
+## 1.1.2
+
+### Patch Changes
+
+- 9c51424: Removed TS files from package
+
 ## 1.1.1
 
 ### Patch Changes
