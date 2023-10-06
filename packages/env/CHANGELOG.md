@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.4.0
+
+### Minor Changes
+
+- bc03fa1: Implement methods from `rdf-dataset-ext` on dataset type to match `rdf-ext` functionality
+
 ## 1.3.2
 
 ### Patch Changes
