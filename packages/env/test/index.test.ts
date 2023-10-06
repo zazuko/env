@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import $rdf from 'rdf-ext'
 import { create } from '../index.js'
+import { Dataset } from '../lib/Dataset.js'
 
 describe('@zazuko/env', () => {
   describe('create', () => {
@@ -71,6 +72,66 @@ describe('@zazuko/env', () => {
 
       it('includes term map factory', () => {
         expect(env.termMap()).to.be.ok
+      })
+
+      context('dataset-ext methods', () => {
+        let dataset: Dataset
+
+        beforeEach(() => {
+          dataset = env.dataset()
+        })
+
+        it('implements addAll', () => {
+          // when
+          dataset.addAll([
+            env.quad(env.blankNode(), env.blankNode(), env.blankNode()),
+          ])
+
+          // then
+          expect(dataset.size).to.eq(1)
+        })
+
+        it('implements equals', () => {
+          expect(dataset.equals(env.dataset())).to.be.true
+        })
+
+        it('implements deleteMatches', () => {
+          // given
+          const s = env.blankNode()
+          const p = env.namedNode('bar')
+          const o = env.blankNode()
+          dataset.add(env.quad(s, p, o))
+
+          // when
+          dataset.deleteMatches(s, p, o)
+
+          // then
+          expect(dataset.size).to.eq(0)
+        })
+
+        it('implements to/fromStream', async () => {
+          // given
+          const s = env.blankNode()
+          const p = env.namedNode('bar')
+          const o = env.blankNode()
+          dataset.add(env.quad(s, p, o))
+
+          const fromStream = await env.dataset().fromStream(dataset.toStream())
+
+          // then
+          expect(fromStream.equals(dataset)).to.be.true
+        })
+
+        it('implements toCanonical', () => {
+          // given
+          const s = env.namedNode('foo')
+          const p = env.namedNode('bar')
+          const o = env.namedNode('baz')
+          dataset.add(env.quad(s, p, o))
+
+          // then
+          expect(dataset.toCanonical()).to.eq('<foo> <bar> <baz> .\n')
+        })
       })
     }
   })
