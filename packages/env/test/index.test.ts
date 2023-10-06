@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 import $rdf from 'rdf-ext'
+import pre from '@changesets/cli/dist/declarations/src/commands/pre/index.js'
 import { create } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
 
@@ -131,6 +132,24 @@ describe('@zazuko/env', () => {
 
           // then
           expect(dataset.toCanonical()).to.eq('<foo> <bar> <baz> .\n')
+        })
+
+        it('implements map', () => {
+          // given
+          const s = env.namedNode('foo')
+          const p = env.namedNode('bar')
+          const o = env.namedNode('baz')
+          const g = env.namedNode('G')
+          dataset.add(env.quad(s, p, o))
+
+          // when
+          dataset = dataset.map(({ subject, predicate, object }) => {
+            return env.quad(subject, predicate, object, g)
+          })
+
+          // then
+          const expected = env.dataset([env.quad(s, p, o, g)])
+          expect(dataset.equals(expected)).to.be.true
         })
       })
     }

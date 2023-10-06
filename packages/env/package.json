@@ -15,6 +15,11 @@
   "bugs": {
     "url": "https://github.com/zazuko/env/issues"
   },
+  "files": [
+    "**/*.js",
+    "**/*.d.ts",
+    "CHANGELOG.md"
+  ],
   "keywords": [
     "rdfjs",
     "environment"

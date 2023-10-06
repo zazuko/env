@@ -7,6 +7,11 @@
     "prepack": "npm run build",
     "build": "esbuild env.ts --bundle --platform=node --format=cjs --sourcemap=external --outfile=env.js"
   },
+  "files": [
+    "**/*.js",
+    "**/*.d.ts",
+    "CHANGELOG.md"
+  ],
   "keywords": [
     "rdfjs",
     "environment"
