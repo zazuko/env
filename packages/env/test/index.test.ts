@@ -1,6 +1,5 @@
 import { expect } from 'chai'
 import $rdf from 'rdf-ext'
-import pre from '@changesets/cli/dist/declarations/src/commands/pre/index.js'
 import { create } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
 
