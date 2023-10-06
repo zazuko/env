@@ -1,5 +1,15 @@
 # @zazuko/env
 
+## 1.5.0
+
+### Minor Changes
+
+- 9c51424: Added `map` method to `Dataset`
+
+### Patch Changes
+
+- 9c51424: Removed TS files from package
+
 ## 1.4.1
 
 ### Patch Changes
