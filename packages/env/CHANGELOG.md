@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.5.1
+
+### Patch Changes
+
+- a730d4d: `addAll` should return self to allow chaining
+
 ## 1.5.0
 
 ### Minor Changes
