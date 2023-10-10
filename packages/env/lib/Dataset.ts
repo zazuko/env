@@ -6,7 +6,7 @@ type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
 
 export class Dataset extends DatasetCore {
   addAll(...[quads]: Rest<Parameters<typeof ext.addAll>>) {
-    ext.addAll(this, quads)
+    return ext.addAll(this, quads)
   }
 
   deleteMatches(...[subject, predicate, object]: Rest<Parameters<typeof ext.deleteMatch>>) {
