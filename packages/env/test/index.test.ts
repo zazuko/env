@@ -85,10 +85,12 @@ describe('@zazuko/env', () => {
           // when
           dataset.addAll([
             env.quad(env.blankNode(), env.blankNode(), env.blankNode()),
+          ]).addAll([
+            env.quad(env.blankNode(), env.blankNode(), env.blankNode()),
           ])
 
           // then
-          expect(dataset.size).to.eq(1)
+          expect(dataset.size).to.eq(2)
         })
 
         it('implements equals', () => {
