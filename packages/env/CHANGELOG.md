@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.6.1
+
+### Patch Changes
+
+- 2489572: `match` was annotated with wrong return type
+
 ## 1.6.0
 
 ### Minor Changes
