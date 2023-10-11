@@ -74,6 +74,14 @@ describe('@zazuko/env', () => {
         expect(env.termMap()).to.be.ok
       })
 
+      context('match', () => {
+        it('return instance of self', () => {
+          const dataset = env.dataset()
+
+          expect(dataset.match()).to.be.instanceof(Dataset)
+        })
+      })
+
       context('dataset-ext methods', () => {
         let dataset: Dataset
 

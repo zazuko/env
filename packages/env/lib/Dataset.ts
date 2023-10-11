@@ -25,6 +25,10 @@ export class Dataset extends DatasetCore {
     return new Dataset([...this].map(quad => callback(quad, this)))
   }
 
+  match(...args: Parameters<DatasetCore['match']>): Dataset {
+    return super.match(...args) as unknown as Dataset
+  }
+
   merge(...[other]: Rest<Parameters<typeof ext.addAll>>) {
     return ext.addAll(new Dataset([...this]), other)
   }
