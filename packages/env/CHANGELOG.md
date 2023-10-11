@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.6.0
+
+### Minor Changes
+
+- 1c9e4b7: Added dataset method `merge`
+
 ## 1.5.2
 
 ### Patch Changes
