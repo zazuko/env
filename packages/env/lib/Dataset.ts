@@ -25,6 +25,10 @@ export class Dataset extends DatasetCore {
     return new Dataset([...this].map(quad => callback(quad, this)))
   }
 
+  merge(...[other]: Rest<Parameters<typeof ext.addAll>>) {
+    return ext.addAll(new Dataset([...this]), other)
+  }
+
   toCanonical() {
     return ext.toCanonical(this)
   }
