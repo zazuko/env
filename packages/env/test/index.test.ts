@@ -93,6 +93,20 @@ describe('@zazuko/env', () => {
           expect(dataset.size).to.eq(2)
         })
 
+        it('implements merge', () => {
+          // given
+          dataset.add(env.quad(env.blankNode(), env.namedNode('foo'), env.blankNode()))
+
+          // when
+          const merged = dataset.merge([
+            env.quad(env.blankNode(), env.blankNode(), env.blankNode()),
+          ])
+
+          // then
+          expect(merged.size).to.eq(2)
+          expect(dataset.size).to.eq(1)
+        })
+
         it('implements equals', () => {
           expect(dataset.equals(env.dataset())).to.be.true
         })
