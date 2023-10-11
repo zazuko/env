@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.7.0
+
+### Minor Changes
+
+- eeff594: Added `@rdfjs/traverser`
+
 ## 1.6.1
 
 ### Patch Changes
