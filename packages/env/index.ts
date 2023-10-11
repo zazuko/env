@@ -6,6 +6,7 @@ import FormatsFactory from '@rdfjs/environment/FormatsFactory.js'
 import TermMapSetFactory from '@rdfjs/environment/TermMapSetFactory.js'
 import NsBuildersFactory from '@tpluscode/rdf-ns-builders'
 import ClownfaceFactory from 'clownface/Factory.js'
+import TraverserFactory from '@rdfjs/traverser/Factory.js'
 import DataFactory from './lib/DatasetFactory.js'
 
 export type DerivedEnvironment<Env, Ex> = Env extends IE<infer F> ? IE<Ex | F> : never
@@ -19,6 +20,7 @@ export function create<F extends FactoryConstructor>(...additionalFactories: F[]
     NsBuildersFactory,
     ClownfaceFactory,
     TermMapSetFactory,
+    TraverserFactory,
     ...additionalFactories,
   ])
 }
