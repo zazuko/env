@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.5.2
+
+### Patch Changes
+
+- 883a942: Require types for `rdf-dataset-ext` as peer dependency
+
 ## 1.5.1
 
 ### Patch Changes
