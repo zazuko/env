@@ -12,9 +12,6 @@ jobs:
       - run: npx c8 --reporter lcovonly --reporter text wsrun --no-prefix -mc test
       - name: Codecov
         uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: ${{ matrix.package }}
 
   lint:
     runs-on: ubuntu-latest
