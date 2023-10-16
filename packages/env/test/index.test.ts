@@ -135,8 +135,8 @@ describe('@zazuko/env', () => {
 
         it('implements filter', () => {
           // given
-          const s = env.blankNode()
-          const o = env.blankNode()
+          const s = env.namedNode('s')
+          const o = env.namedNode('p')
           dataset.add(env.quad(s, env.namedNode('foo'), o))
           dataset.add(env.quad(s, env.namedNode('bar'), o))
 
@@ -146,6 +146,9 @@ describe('@zazuko/env', () => {
           // then
           expect(dataset.size).to.eq(2)
           expect(filtered.size).to.eq(1)
+          expect([...filtered]).to.deep.contain.members([
+            env.quad(s, env.namedNode('foo'), o),
+          ])
         })
 
         it('implements to/fromStream', async () => {
