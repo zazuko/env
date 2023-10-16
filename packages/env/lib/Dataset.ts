@@ -21,7 +21,11 @@ export class Dataset extends DatasetCore {
     return ext.fromStream(this, stream)
   }
 
-  map(callback: (quad: Quad, dataset: Dataset) => Quad) {
+  filter(filter: (quad: Quad, dataset: typeof this) => boolean) {
+    return new Dataset([...this].filter(quad => filter(quad, this)))
+  }
+
+  map(callback: (quad: Quad, dataset: typeof this) => Quad) {
     return new Dataset([...this].map(quad => callback(quad, this)))
   }
 

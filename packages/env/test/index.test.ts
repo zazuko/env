@@ -133,6 +133,21 @@ describe('@zazuko/env', () => {
           expect(dataset.size).to.eq(0)
         })
 
+        it('implements filter', () => {
+          // given
+          const s = env.blankNode()
+          const o = env.blankNode()
+          dataset.add(env.quad(s, env.namedNode('foo'), o))
+          dataset.add(env.quad(s, env.namedNode('bar'), o))
+
+          // when
+          const filtered = dataset.filter(q => env.namedNode('foo').equals(q.predicate))
+
+          // then
+          expect(dataset.size).to.eq(2)
+          expect(filtered.size).to.eq(1)
+        })
+
         it('implements to/fromStream', async () => {
           // given
           const s = env.blankNode()
