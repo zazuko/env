@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.8.0
+
+### Minor Changes
+
+- d35c37a: Added `filter` function to dataset
+
 ## 1.7.0
 
 ### Minor Changes
