@@ -1,0 +1,43 @@
+{
+  "name": "@zazuko/env-node",
+  "version": "0.0.0",
+  "description": "Zazuko's RDF/JS Environment to use in NodeJs",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "prepack": "tsc"
+  },
+  "repository": {
+    "url": "git://github.com/zazuko/env.git",
+    "directory": "packages/env-node"
+  },
+  "bugs": {
+    "url": "https://github.com/zazuko/env/issues"
+  },
+  "files": [
+    "**/*.js",
+    "**/*.d.ts",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "rdfjs",
+    "environment",
+    "nodejs"
+  ],
+  "author": "Zazuko GmbH",
+  "license": "MIT",
+  "dependencies": {
+    "@zazuko/env": "^1.8.0",
+    "@rdfjs/dataset": "^2.0.1",
+    "@rdfjs/environment": "^0.1.2",
+    "@rdfjs/traverser": "^0.1.2",
+    "@tpluscode/rdf-ns-builders": "^4.1.0",
+    "@zazuko/rdf-utils-fs": "^3.0.2",
+    "@rdfjs/formats-common": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/rdfjs__formats-common": "^3.1.0",
+    "chai": "^4.3.7",
+    "tempy": "^3.1.0"
+  }
+}
