@@ -26,7 +26,6 @@
   "author": "Zazuko GmbH",
   "license": "MIT",
   "devDependencies": {
-    "@rdfjs/fetch-lite": "^3.2.1",
     "@zazuko/env-node": "^0.0.0",
     "esbuild": "^0.18.14"
   }

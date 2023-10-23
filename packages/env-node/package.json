@@ -30,6 +30,7 @@
     "@zazuko/env": "^1.8.0",
     "@rdfjs/dataset": "^2.0.1",
     "@rdfjs/environment": "^0.1.2",
+    "@rdfjs/fetch-lite": "^3.2.1",
     "@rdfjs/traverser": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
     "@zazuko/rdf-utils-fs": "^3.0.2",
