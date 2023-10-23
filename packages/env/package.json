@@ -16,8 +16,10 @@
     "url": "https://github.com/zazuko/env/issues"
   },
   "files": [
-    "**/*.js",
-    "**/*.d.ts",
+    "*.js",
+    "*.d.ts",
+    "lib/*.js",
+    "lib/*.d.ts",
     "CHANGELOG.md"
   ],
   "keywords": [
