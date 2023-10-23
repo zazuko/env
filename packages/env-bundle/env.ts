@@ -1,8 +1,3 @@
-import { create } from '@zazuko/env'
-import FetchFactory from '@rdfjs/fetch-lite/Factory.js'
-import formats from '@rdfjs/formats-common'
-
-const env = create(FetchFactory)
-env.formats.import(formats)
+import env from '@zazuko/env-node'
 
 export default env
