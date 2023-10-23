@@ -13,7 +13,7 @@ import FsUtilsFactory from '@zazuko/rdf-utils-fs/Factory.js'
 import FetchFactory from '@rdfjs/fetch-lite/Factory.js'
 
 export function create<F extends FactoryConstructor>(...additionalFactories: F[]) {
-  // TODO: improve types soe that it's not necessary to duplicate ths from `@zazuko/env`
+  // TODO: improve types so that it's not necessary to duplicate this from `@zazuko/env`
   const env = new Environment([
     DataFactory,
     DatasetFactory,
