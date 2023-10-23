@@ -2,8 +2,8 @@
 
 This package extends [@zazuko/env](https://npm.im/@zazuko/env) by adding support for NodeJs.
 
-It includes [`@zazuko/rdf-utils-fs`](@zazuko/rdf-utils-fs) and bundles the default set of
-parsers and serializers.
+It includes [`@zazuko/rdf-utils-fs`](@zazuko/rdf-utils-fs) and [`@rdfjs/fetch-lite`](https://npm.im/@rdfjs/fetch-lite)
+and bundles the default set of parsers and serializers.
 
 ## Using different serializers
 
