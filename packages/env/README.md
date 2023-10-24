@@ -34,7 +34,7 @@ const myEnv: DerivedEnvironment<MyFactory> = create(MyFactory)
 
 #### `rdf-ext` functionality
 
-The provided `DatasetCore` implementation extends it with methods matching the `rdf-ext` interface.
+The provided `DatasetCore` implementation provides additional methods, matching the `rdf-ext` interface.
 
 #### Serializing
 
