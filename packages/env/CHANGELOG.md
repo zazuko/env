@@ -1,5 +1,15 @@
 # @zazuko/env
 
+## 1.9.0
+
+### Minor Changes
+
+- b9b21f3: Added a `serialize` method to dataset
+
+### Patch Changes
+
+- 38ca62c: Remove test files from package
+
 ## 1.8.0
 
 ### Minor Changes

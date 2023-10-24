@@ -1,5 +1,11 @@
 # @zazuko/env-bundle
 
+## 1.2.0
+
+### Minor Changes
+
+- 16cec18: Use `@zazuko/env-node` for bundling
+
 ## 1.1.2
 
 ### Patch Changes
