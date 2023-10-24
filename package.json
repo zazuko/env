@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint . --ext .ts --quiet --ignore-path .gitignore",
-    "test": "wsrun -sm --report test",
+    "test": "wsrun -sm --report --no-prefix test",
     "release": "changeset publish"
   },
   "author": "Zazuko GmbH",

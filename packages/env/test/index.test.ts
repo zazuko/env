@@ -1,7 +1,14 @@
 import { expect } from 'chai'
 import $rdf from 'rdf-ext'
-import { create } from '../index.js'
+import prettyFormats from '@rdfjs-elements/formats-pretty'
+import { create, DefaultEnv } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
+
+declare module '../formats' {
+  interface RdfFormat {
+    trix: 'application/trix'
+  }
+}
 
 describe('@zazuko/env', () => {
   describe('create', () => {
@@ -74,11 +81,45 @@ describe('@zazuko/env', () => {
         expect(env.termMap()).to.be.ok
       })
 
+      context('serialize', () => {
+        let rdf: DefaultEnv
+
+        beforeEach(() => {
+          rdf = create()
+          rdf.formats.import(prettyFormats)
+        })
+
+        it('uses the selected formatter', async () => {
+          const ex = rdf.namespace('http://example.com/')
+          const dataset = rdf.dataset().add(env.quad(ex.john, rdf.ns.schema.name, env.literal('John')))
+
+          // when
+          const jsonLd = await dataset.serialize({ format: 'application/ld+json' })
+
+          // then
+          expect(JSON.parse(jsonLd)).to.deep.eq({
+            '@id': 'http://example.com/john',
+            'http://schema.org/name': 'John',
+          })
+        })
+
+        it('outputs canonical quads when unsupported serializer is selected', async () => {
+          const ex = rdf.namespace('http://example.com/')
+          const dataset = rdf.dataset().add(env.quad(ex.john, rdf.ns.schema.name, env.literal('John')))
+
+          // when
+          const serialized = await dataset.serialize({ format: 'application/trix' })
+
+          // then
+          expect(serialized).to.eq(dataset.toCanonical())
+        })
+      })
+
       context('match', () => {
         it('return instance of self', () => {
           const dataset = env.dataset()
 
-          expect(dataset.match()).to.be.instanceof(Dataset)
+          expect(dataset.match()).to.be.instanceof(env.dataset.Class)
         })
       })
 

@@ -27,3 +27,29 @@ class MyFactory {}
 
 const myEnv: DerivedEnvironment<MyFactory> = create(MyFactory)
 ```
+
+## Additional features
+
+### Dataset
+
+#### `rdf-ext` functionality
+
+The provided `DatasetCore` implementation provides additional methods, matching the `rdf-ext` interface.
+
+#### Serializing
+
+It also includes a `serialize` method to easily get a string representation for supported formats.
+Serializers are not added out of the box and the need to be imported first
+
+```js
+import rdf from '@zazuko/env'
+import formats from '@rdfjs/formats-common'
+
+rdf.formats.import(formats)
+
+const dataset = rdf.dataset()
+
+// create some data
+
+const turtle = await dataset.serialize({ format: 'text/turtle' })
+```

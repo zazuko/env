@@ -1,12 +1,23 @@
 import type { Quad } from '@rdfjs/types'
-import { Dataset } from './Dataset.js'
+import { Environment } from '@rdfjs/environment/Environment.js'
+import { FormatsFactory } from '@rdfjs/environment/FormatsFactory.js'
+import { Dataset, DatasetCtor, createConstructor } from './Dataset.js'
 
-export default class {
-  dataset(quads: Iterable<Quad> = []) {
-    return new Dataset([...quads])
-  }
+interface FactoryMethod {
+  (quads?: Iterable<Quad>): Dataset
+  Class: DatasetCtor
+}
 
-  static get exports() {
-    return ['dataset']
+export default class DatasetFactory {
+  public dataset!: FactoryMethod
+
+  init(this: Environment<FormatsFactory | DatasetFactory>) {
+    const Dataset = createConstructor(this)
+
+    this.dataset = ((quads: Iterable<Quad> = []) => {
+      return new Dataset([...quads])
+    }) as FactoryMethod
+
+    this.dataset.Class = Dataset
   }
 }
