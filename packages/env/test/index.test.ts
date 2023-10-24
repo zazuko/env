@@ -4,6 +4,12 @@ import prettyFormats from '@rdfjs-elements/formats-pretty'
 import { create, DefaultEnv } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
 
+declare module '../formats' {
+  interface RdfFormat {
+    trix: 'application/trix'
+  }
+}
+
 describe('@zazuko/env', () => {
   describe('create', () => {
     let env: ReturnType<typeof create>
@@ -95,6 +101,17 @@ describe('@zazuko/env', () => {
             '@id': 'http://example.com/john',
             'http://schema.org/name': 'John',
           })
+        })
+
+        it('outputs canonical quads when unsupported serializer is selected', async () => {
+          const ex = rdf.namespace('http://example.com/')
+          const dataset = rdf.dataset().add(env.quad(ex.john, rdf.ns.schema.name, env.literal('John')))
+
+          // when
+          const serialized = await dataset.serialize({ format: 'application/trix' })
+
+          // then
+          expect(serialized).to.eq(dataset.toCanonical())
         })
       })
 
