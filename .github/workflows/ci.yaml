@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npx c8 --reporter lcovonly --reporter text wsrun --no-prefix -mc test
+      - run: npx c8 --reporter lcovonly --reporter npm test
       - name: Codecov
         uses: codecov/codecov-action@v3
 
