@@ -5,7 +5,7 @@ import type * as Rdf from '@rdfjs/types'
 import { Environment } from '@rdfjs/environment/Environment.js'
 import { FormatsFactory } from '@rdfjs/environment/FormatsFactory.js'
 import getStream from 'get-stream'
-import RdfFormat from './RdfFormat.js'
+import { MediaType } from '../formats.js'
 
 type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
 
@@ -27,7 +27,7 @@ export interface Dataset extends Rdf.DatasetCore {
    * This requires that the environment includes an appropriate serializer.
    * If it is not found, canonical n-quads are returned
    */
-  serialize({ format }: { format: RdfFormat }): Promise<string>
+  serialize({ format }: { format: MediaType }): Promise<string>
 }
 
 export interface DatasetCtor {
@@ -76,7 +76,7 @@ export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor
       return ext.toStream(this)
     }
 
-    async serialize({ format }: { format: RdfFormat }): Promise<string> {
+    async serialize({ format }: { format: MediaType }): Promise<string> {
       const serializer = env.formats.serializers.get(format)
       if (!serializer) {
         return this.toCanonical()
