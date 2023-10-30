@@ -4,7 +4,7 @@ import prettyFormats from '@rdfjs-elements/formats-pretty'
 import { create, DefaultEnv } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
 
-declare module '../formats' {
+declare module '../formats.js' {
   interface RdfFormat {
     trix: 'application/trix'
   }
@@ -101,6 +101,27 @@ describe('@zazuko/env', () => {
             '@id': 'http://example.com/john',
             'http://schema.org/name': 'John',
           })
+        })
+
+        it('supports prefixes', async () => {
+          const dataset = rdf.dataset().add(env.quad(rdf.blankNode(), rdf.ns.sh.path, rdf.ns.schema.name))
+
+          // when
+          const turtle = await dataset.serialize({
+            format: 'text/turtle',
+            prefixes: [
+              'sh',
+              ['schema', 'http://schema.org/'],
+            ],
+          })
+
+          // then
+          expect(turtle).to.eq(`@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix schema: <http://schema.org/> .
+
+_:b1 sh:path schema:name .
+
+`)
         })
 
         it('outputs canonical quads when unsupported serializer is selected', async () => {
