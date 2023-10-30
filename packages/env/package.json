@@ -33,6 +33,7 @@
     "@rdfjs/environment": "^0.1.2",
     "@rdfjs/traverser": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
+    "@zazuko/prefixes": "^2.1.0",
     "clownface": "^2.0.1",
     "get-stream": "^8.0.1",
     "rdf-dataset-ext": "^1.1.0"

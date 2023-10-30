@@ -5,9 +5,20 @@ import type * as Rdf from '@rdfjs/types'
 import { Environment } from '@rdfjs/environment/Environment.js'
 import { FormatsFactory } from '@rdfjs/environment/FormatsFactory.js'
 import getStream from 'get-stream'
+import knownPrefixes from '@zazuko/prefixes'
+import type { Prefixes } from '@zazuko/prefixes/prefixes'
 import { MediaType } from '../formats.js'
 
 type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
+
+interface SerializeArgs {
+  format: MediaType
+  /**
+   * Prefixes to be used in the serialization. Array values can be prefix known to `@zazuko/prefixes` or a custom prefix
+   * pair
+   */
+  prefixes?: Array<keyof Prefixes | [string, string]>
+}
 
 export interface Dataset extends Rdf.DatasetCore {
   addAll(...[quads]: Rest<Parameters<typeof ext.addAll>>): Dataset
@@ -27,7 +38,7 @@ export interface Dataset extends Rdf.DatasetCore {
    * This requires that the environment includes an appropriate serializer.
    * If it is not found, canonical n-quads are returned
    */
-  serialize({ format }: { format: MediaType }): Promise<string>
+  serialize(args: SerializeArgs): Promise<string>
 }
 
 export interface DatasetCtor {
@@ -76,13 +87,22 @@ export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor
       return ext.toStream(this)
     }
 
-    async serialize({ format }: { format: MediaType }): Promise<string> {
-      const serializer = env.formats.serializers.get(format)
+    async serialize({ format, prefixes = [] }: SerializeArgs): Promise<string> {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const serializer: any = env.formats.serializers.get(format)
       if (!serializer) {
         return this.toCanonical()
       }
 
-      return getStream(<Readable>serializer.import(this.toStream()))
+      return getStream(<Readable>serializer.import(this.toStream(), {
+        prefixes: prefixes.reduce((map, prefix) => {
+          if (Array.isArray(prefix)) {
+            return { ...map, [prefix[0]]: prefix[1] }
+          }
+
+          return { ...map, [prefix]: knownPrefixes[prefix] }
+        }, {}),
+      }))
     }
   }
 }
