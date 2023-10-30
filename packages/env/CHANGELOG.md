@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.10.0
+
+### Minor Changes
+
+- f6918de: Add option to set serializer prefixes
+
 ## 1.9.0
 
 ### Minor Changes
