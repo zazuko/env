@@ -195,6 +195,19 @@ _:b1 sh:path schema:name .
           expect(dataset.size).to.eq(0)
         })
 
+        it('implements deleteMatches graph removal', () => {
+          // given
+          const s = env.blankNode()
+          const p = env.namedNode('bar')
+          const o = env.blankNode()
+          const g = env.namedNode('G')
+          dataset.add(env.quad(s, p, o, g))
+
+          // then
+          expect(dataset.deleteMatches(s, p, o, env.defaultGraph()).size).to.eq(1)
+          expect(dataset.deleteMatches(s, p, o, g).size).to.eq(0)
+        })
+
         it('implements filter', () => {
           // given
           const s = env.namedNode('s')

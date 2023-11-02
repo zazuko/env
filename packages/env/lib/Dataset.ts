@@ -22,7 +22,7 @@ interface SerializeArgs {
 
 export interface Dataset extends Rdf.DatasetCore {
   addAll(...[quads]: Rest<Parameters<typeof ext.addAll>>): Dataset
-  deleteMatches(...[subject, predicate, object]: Rest<Parameters<typeof ext.deleteMatch>>): Dataset
+  deleteMatches(...args: Rest<Parameters<typeof ext.deleteMatch>>): Dataset
   equals(...[other]: Rest<Parameters<typeof ext.equals>>): boolean
   import(...[stream]: Rest<Parameters<typeof ext.fromStream>>): Promise<Dataset>
   filter(filter: (quad: Rdf.Quad, dataset: Dataset) => boolean): Dataset
@@ -51,8 +51,8 @@ export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor
       return ext.addAll(this, quads)
     }
 
-    deleteMatches(...[subject, predicate, object]: Rest<Parameters<typeof ext.deleteMatch>>) {
-      return ext.deleteMatch(this, subject, predicate, object)
+    deleteMatches(...args: Rest<Parameters<typeof ext.deleteMatch>>) {
+      return ext.deleteMatch(this, ...args)
     }
 
     equals(...[other]: Rest<Parameters<typeof ext.equals>>) {
