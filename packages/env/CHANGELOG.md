@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.10.1
+
+### Patch Changes
+
+- 9beb39b: `graph` was ignored by `Dataset#deleteMatches`
+
 ## 1.10.0
 
 ### Minor Changes
