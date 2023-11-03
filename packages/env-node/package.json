@@ -37,6 +37,9 @@
     "@zazuko/rdf-utils-fs": "^3.0.2",
     "clownface": "^2.0.1"
   },
+  "peerDependencies": {
+    "@types/rdfjs__fetch-lite": "^3.0.6"
+  },
   "devDependencies": {
     "@types/rdfjs__formats-common": "^3.1.0",
     "chai": "^4.3.7",
