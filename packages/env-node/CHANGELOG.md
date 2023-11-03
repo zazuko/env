@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 1.0.1
+
+### Patch Changes
+
+- 29ffc05: Missing types of fetch-lite caused TS errors
+
 ## 1.0.0
 
 ### Major Changes
