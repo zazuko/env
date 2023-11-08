@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 1.0.2
+
+### Patch Changes
+
+- b154b2d: Update `rdf-utils-fs`
+
 ## 1.0.1
 
 ### Patch Changes
