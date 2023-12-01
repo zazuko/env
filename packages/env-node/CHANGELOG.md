@@ -1,5 +1,13 @@
 # @zazuko/env-node
 
+## 1.0.3
+
+### Patch Changes
+
+- ac2a2f3: Update `@zazuko/rdf-utils-fs`
+- Updated dependencies [5c592b1]
+  - @zazuko/env@1.11.0
+
 ## 1.0.2
 
 ### Patch Changes
