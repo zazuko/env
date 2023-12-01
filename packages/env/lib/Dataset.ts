@@ -27,6 +27,7 @@ export interface Dataset extends Rdf.DatasetCore {
   import(...[stream]: Rest<Parameters<typeof ext.fromStream>>): Promise<Dataset>
   filter(filter: (quad: Rdf.Quad, dataset: Dataset) => boolean): Dataset
   map(callback: (quad: Rdf.Quad, dataset: Dataset) => Rdf.Quad): Dataset
+  forEach(callback: (quad: Rdf.Quad, dataset: Dataset) => void): void
   match(...args: Parameters<DatasetCore['match']>): Dataset
   merge(...[other]: Rest<Parameters<typeof ext.addAll>>): Dataset
   merge(...[other]: Rest<Parameters<typeof ext.addAll>>): Dataset
@@ -57,6 +58,10 @@ export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor
 
     equals(...[other]: Rest<Parameters<typeof ext.equals>>) {
       return ext.equals(this, other)
+    }
+
+    forEach(callback:(quad: Rdf.Quad, dataset: typeof this) => void) {
+      Array.from(this).forEach(quad => callback(quad, this))
     }
 
     import(...[stream]: Rest<Parameters<typeof ext.fromStream>>) {

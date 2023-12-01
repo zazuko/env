@@ -267,6 +267,24 @@ _:b1 sh:path schema:name .
           const expected = env.dataset([env.quad(s, p, o, g)])
           expect(dataset.equals(expected)).to.be.true
         })
+
+        it('implements forEach', () => {
+          // given
+          const s = env.namedNode('foo')
+          const p = env.namedNode('bar')
+          const o = env.namedNode('baz')
+          const g = env.namedNode('G')
+          dataset.add(env.quad(s, p, o))
+
+          // when
+          let concat = ''
+          dataset.forEach(({ subject, predicate, object }) => {
+            concat += subject.value + predicate.value + object.value
+          })
+
+          // then
+          expect(concat).to.eq('foobarbaz')
+        })
       })
     }
   })
