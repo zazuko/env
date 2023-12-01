@@ -34,7 +34,7 @@
     "@rdfjs/traverser": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
     "@zazuko/env": "^1.9.0",
-    "@zazuko/rdf-utils-fs": "^3.1.0",
+    "@zazuko/rdf-utils-fs": "^3.2.0",
     "clownface": "^2.0.1"
   },
   "peerDependencies": {
