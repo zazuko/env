@@ -273,7 +273,6 @@ _:b1 sh:path schema:name .
           const s = env.namedNode('foo')
           const p = env.namedNode('bar')
           const o = env.namedNode('baz')
-          const g = env.namedNode('G')
           dataset.add(env.quad(s, p, o))
 
           // when
