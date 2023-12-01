@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 1.11.0
+
+### Minor Changes
+
+- 5c592b1: `Dataset#forEach` function, same as in rdf-ext
+
 ## 1.10.1
 
 ### Patch Changes
