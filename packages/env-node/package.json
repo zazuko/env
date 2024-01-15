@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "prepack": "tsc"
+    "prepack": "tsc",
+    "test": "mocha --package ../../package.json"
   },
   "repository": {
     "url": "git://github.com/zazuko/env.git",
@@ -27,19 +28,10 @@
   "author": "Zazuko GmbH",
   "license": "MIT",
   "dependencies": {
-    "@rdfjs/dataset": "^2.0.1",
-    "@rdfjs/data-model": "^2.0.1",
-    "@rdfjs/environment": "^1.0.0",
     "@rdfjs/fetch-lite": "^3.2.2",
     "@rdfjs/formats": "^4.0.0",
-    "@rdfjs/namespace": "^2.0.0",
-    "@rdfjs/term-map": "^2.0.0",
-    "@rdfjs/term-set": "^2.0.1",
-    "@rdfjs/traverser": "^0.1.2",
-    "@tpluscode/rdf-ns-builders": "^4.1.0",
     "@zazuko/env": "^1.11.0",
-    "@zazuko/rdf-utils-fs": "^3.3.0",
-    "clownface": "^2.0.1"
+    "@zazuko/rdf-utils-fs": "^3.3.0"
   },
   "peerDependencies": {
     "@types/rdfjs__fetch-lite": "^3.0.6"
