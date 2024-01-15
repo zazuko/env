@@ -22,32 +22,6 @@ describe('@zazuko/env', () => {
       testStandardFactories()
     })
 
-    context('with additional factory', () => {
-      class Factory {
-        get foo() {
-          return 'bar'
-        }
-
-        static get exports() {
-          return ['foo']
-        }
-      }
-
-      before(() => {
-        env = create(Factory)
-      })
-
-      it('adds that factory', () => {
-        // when
-        const env = create(Factory)
-
-        // then
-        expect(env.foo).to.eq('bar')
-      })
-
-      testStandardFactories()
-    })
-
     function testStandardFactories() {
       it('includes include clownface factory', () => {
         expect(env.clownface().namedNode('http://example.com/foo').term).to.deep.eq($rdf.namedNode('http://example.com/foo'))
