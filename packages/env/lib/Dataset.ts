@@ -105,7 +105,11 @@ export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor
             return { ...map, [prefix[0]]: prefix[1] }
           }
 
-          return { ...map, [prefix]: knownPrefixes[prefix] }
+          if (prefix in knownPrefixes) {
+            return { ...map, [prefix]: knownPrefixes[prefix] }
+          }
+
+          return map
         }, {}),
       }))
     }
