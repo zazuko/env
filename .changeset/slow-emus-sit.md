@@ -15,5 +15,5 @@ import env from '@zazuko/env';
 import Environment from '@zazuko/env/Environment.js';
 import MyFactory from './my-factory.js';
 
-const myEnv = Environment([MyFactory], env);
+const myEnv = new Environment([MyFactory], { parent: env });
 ```

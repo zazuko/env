@@ -1,6 +1,6 @@
 # Zazuko's [RDF/JS Environment](https://github.com/rdfjs-base/environment)
 
-Like `rdf-ext`, with the addition of `@tpluscode/rdf-ns-builders`
+Like `rdf-ext`, with some additional features.
 
 ```js
 import env from '@zazuko/env'
@@ -14,18 +14,6 @@ const sheldonCooper = env.clownface()
   // use common vocabularies out-of-the box  
   .addOut(env.ns.rdf.type, env.ns.schema.Person)
   .addOut(env.ns.schema.knows, tbbt.leonard)
-```
-
-Also, provides TypeScript types for the default environment and a mapped type,
-which helps declare derived environment type, which combines existing envirnment
-with additional factories
-
-```ts
-import { create, DefaultEnv, DerivedEnvironment } from '@zazuko/env'
-
-class MyFactory {}
-
-const myEnv: DerivedEnvironment<MyFactory> = create(MyFactory)
 ```
 
 ## Additional features
@@ -53,3 +41,17 @@ const dataset = rdf.dataset()
 
 const turtle = await dataset.serialize({ format: 'text/turtle' })
 ```
+
+#### Extending environments
+
+This package adds the ability to create environments on top of existing ones. To do that, pass the parent environment to the constructor options.
+
+```js
+import env from '@zazuko/env';
+import Environment from '@zazuko/env/Environment.js';
+import MyFactory from './my-factory.js';
+
+const myEnv = new Environment([MyFactory], { parent: env });
+```
+
+The `myEnv` will have all the factories from `env` and `MyFactory`.
