@@ -1,9 +1,9 @@
 import { extend } from './lib/extend.js'
 
 export default class Environment {
-  constructor(factories, parent, { bind = false } = {}) {
+  constructor(factories, { parent, bind = false } = {}) {
     this._parent = parent
-    this._factories = factories
+    this._factories = factories.slice()
 
     const extended = parent ? extend(parent, this) : this
 

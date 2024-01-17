@@ -8,20 +8,22 @@ type CombinedEnvironment<E extends ReadonlyArray<Environment<any>>> = Environmen
 export type DerivedEnvironment<Env extends Environment<unknown>, Ex extends Environment<unknown>> = CombinedEnvironment<[Env, Ex]>
 
 export function extend<E extends Environment<any>, P extends Environment<any>>(self: E, parent: P) {
-  return new Proxy([self, parent], {
+  const envs = [self, parent]
+
+  return new Proxy({}, {
     get(target, prop) {
-      const value = target.find(env => prop in env)
+      const value = envs.find(env => prop in env)
       if (value) {
         return value[prop as keyof E]
       }
     },
     set(target, prop, value) {
-      target[0][prop as keyof E] = value
+      envs[0][prop as keyof E] = value
 
       return true
     },
     has(target, prop) {
-      return target.some(env => prop in env)
+      return envs.some(env => prop in env)
     },
   }) as any as DerivedEnvironment<P, E>
 }

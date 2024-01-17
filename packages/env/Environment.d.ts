@@ -18,8 +18,7 @@ interface EnvironmentCtor {
 
   new<F extends ReadonlyArray<FactoryConstructor<any>>, E extends Environment<any>>(
     factories: Narrow<F>,
-    parent?: E,
-    options?: { bind: boolean },
+    options: { parent?: E; bind?: boolean },
   ): DerivedEnvironment<E, Environment<Distribute<F[number]>>>
 }
 
