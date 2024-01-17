@@ -1,6 +1,6 @@
 import type { Quad } from '@rdfjs/types'
 import { Environment } from '@rdfjs/environment/Environment.js'
-import { FormatsFactory } from '@rdfjs/environment/FormatsFactory.js'
+import { FormatsFactory } from '@rdfjs/formats/Factory.js'
 import { Dataset, DatasetCtor, createConstructor } from './Dataset.js'
 
 interface FactoryMethod {

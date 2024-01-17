@@ -1,14 +1,15 @@
-import formats from '@rdfjs/formats-common'
+import formats from '@rdfjs/formats'
 import type { FactoryConstructor } from '@rdfjs/environment/Environment.js'
 import Environment from '@rdfjs/environment'
-import DatasetFactory from '@rdfjs/environment/DataFactory.js'
-import NamespaceFactory from '@rdfjs/environment/NamespaceFactory.js'
-import FormatsFactory from '@rdfjs/environment/FormatsFactory.js'
-import TermMapSetFactory from '@rdfjs/environment/TermMapSetFactory.js'
+import DataFactory from '@rdfjs/data-model/Factory.js'
+import NamespaceFactory from '@rdfjs/namespace/Factory.js'
+import FormatsFactory from '@rdfjs/formats/Factory.js'
+import TermMapFactory from '@rdfjs/term-map/Factory.js'
+import TermSetFactory from '@rdfjs/term-set/Factory.js'
 import NsBuildersFactory from '@tpluscode/rdf-ns-builders'
 import ClownfaceFactory from 'clownface/Factory.js'
 import TraverserFactory from '@rdfjs/traverser/Factory.js'
-import DataFactory from '@zazuko/env/lib/DatasetFactory.js'
+import DatasetFactory from '@zazuko/env/lib/DatasetFactory.js'
 import FsUtilsFactory from '@zazuko/rdf-utils-fs/Factory.js'
 import FetchFactory from '@rdfjs/fetch-lite/Factory.js'
 
@@ -21,7 +22,8 @@ export function create<F extends FactoryConstructor>(...additionalFactories: F[]
     NamespaceFactory,
     NsBuildersFactory,
     ClownfaceFactory,
-    TermMapSetFactory,
+    TermMapFactory,
+    TermSetFactory,
     TraverserFactory,
     FsUtilsFactory,
     FetchFactory,
