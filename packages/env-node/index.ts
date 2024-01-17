@@ -8,7 +8,7 @@ export function create() {
   const env = new Environment([
     FsUtilsFactory,
     FetchFactory,
-  ], baseEnv)
+  ], { parent: baseEnv })
   env.formats.import(formats)
   return env
 }
