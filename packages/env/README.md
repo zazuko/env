@@ -31,7 +31,7 @@ Serializers are not added out of the box and the need to be imported first
 
 ```js
 import rdf from '@zazuko/env'
-import formats from '@rdfjs/formats-common'
+import formats from '@rdfjs/formats'
 
 rdf.formats.import(formats)
 
