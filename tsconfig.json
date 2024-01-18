@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "target": "ES2022",
     "strict": true,
     "strictNullChecks": true,

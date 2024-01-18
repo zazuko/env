@@ -58,7 +58,6 @@
     "@rdfjs-elements/formats-pretty": "^0.6.4",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
-    "@types/rdf-ext": "^2.5.0",
     "chai": "^4.3.7",
     "mocha": "^10.2.0"
   }
