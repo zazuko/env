@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.0.1
+
+### Patch Changes
+
+- a9b5fb3: Missing peer dependencies on types
+
 ## 2.0.0
 
 ### Major Changes
