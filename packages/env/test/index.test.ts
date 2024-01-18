@@ -1,6 +1,8 @@
 import { expect } from 'chai'
-import $rdf from 'rdf-ext'
+import $rdf from '@rdfjs/data-model'
+import rdfDs from '@rdfjs/dataset'
 import prettyFormats from '@rdfjs-elements/formats-pretty'
+import toStream from 'rdf-dataset-ext/toStream.js'
 import { create, DefaultEnv } from '../index.js'
 import { Dataset } from '../lib/Dataset.js'
 
@@ -40,7 +42,7 @@ describe('@zazuko/env', () => {
       })
 
       it('includes formats factory', () => {
-        expect(env.formats.serializers.import('text/turtle', $rdf.dataset().toStream())).to.be.null
+        expect(env.formats.serializers.import('text/turtle', toStream(rdfDs.dataset()))).to.be.null
       })
 
       it('includes ns builders factory', () => {
