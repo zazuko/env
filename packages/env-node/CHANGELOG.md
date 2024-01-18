@@ -1,5 +1,17 @@
 # @zazuko/env-node
 
+## 2.1.0
+
+### Minor Changes
+
+- 16faf2f: Re-export `Environment` from `@zazuko/env`
+
+### Patch Changes
+
+- 1ddac0f: Fixes a weird build problem that generated types referenced `TermSetFactory` from rdf-ext, although it was not used at all. Had to remove `rdf-ext` from dev dependencies of `@zazuko/env` to fix it.
+- Updated dependencies [1ddac0f]
+  - @zazuko/env@2.0.2
+
 ## 2.0.0
 
 ### Major Changes
