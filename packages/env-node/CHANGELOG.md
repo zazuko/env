@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 2.1.1
+
+### Patch Changes
+
+- f3ded69: One more attempt at fixing `TermSetFactory` problem
+
 ## 2.1.0
 
 ### Minor Changes
