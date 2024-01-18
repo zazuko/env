@@ -4,6 +4,8 @@ import Environment from '@zazuko/env/Environment.js'
 import FsUtilsFactory from '@zazuko/rdf-utils-fs/Factory.js'
 import FetchFactory from '@rdfjs/fetch-lite/Factory.js'
 
+export { default as Environment } from '@zazuko/env/Environment.js'
+
 export function create() {
   const env = new Environment([
     FsUtilsFactory,
