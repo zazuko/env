@@ -1,5 +1,14 @@
 # @zazuko/env-node
 
+## 1.0.4
+
+### Patch Changes
+
+- bf2c9a1: Update to `@rdfjs/environment` v1 and its updated dependencies. Notably, `@rdfjs/formats` replaced `@rdfjs/formats-common`
+- Updated dependencies [8cc7a4e]
+- Updated dependencies [bf2c9a1]
+  - @zazuko/env@1.11.1
+
 ## 1.0.3
 
 ### Patch Changes

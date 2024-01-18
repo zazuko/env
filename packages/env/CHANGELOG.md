@@ -1,5 +1,12 @@
 # @zazuko/env
 
+## 1.11.1
+
+### Patch Changes
+
+- 8cc7a4e: `Dataset#serialize` would fail with some parsers when unrecognized prefix was used
+- bf2c9a1: Update to `@rdfjs/environment` v1 and its updated dependencies. Notably, `@rdfjs/formats` replaced `@rdfjs/formats-common`
+
 ## 1.11.0
 
 ### Minor Changes
