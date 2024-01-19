@@ -1,5 +1,12 @@
 # @zazuko/env
 
+## 2.0.3
+
+### Patch Changes
+
+- c3a88ff: When extending a parent environment multiple times, properties were set on the parent instead of child, causing it to be overwritten
+- c3a88ff: Added proxy trap for `Object.keys` to extended environments
+
 ## 2.0.2
 
 ### Patch Changes
