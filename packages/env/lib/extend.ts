@@ -10,10 +10,6 @@ export type DerivedEnvironment<Env extends Environment<unknown>, Ex extends Envi
 export function extend<E extends Environment<any>, P extends Environment<any>>({ parent, child }: {parent: P; child: E}) {
   const proxy = new Proxy({}, {
     get(target, prop) {
-      if (prop === 'valueOf') {
-        return () => 'foo'
-      }
-
       return child[prop] || parent[prop]
     },
     set(target, prop, value) {
