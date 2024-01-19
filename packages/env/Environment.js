@@ -5,7 +5,7 @@ export default class Environment {
     this._parent = parent
     this._factories = factories.slice()
 
-    const extended = parent ? extend(parent, this) : this
+    const extended = parent ? extend({ parent, child: this }) : this
 
     for (const factory of this._factories) {
       if (typeof factory.prototype.init === 'function') {

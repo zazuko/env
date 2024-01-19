@@ -7,23 +7,31 @@ type Distribute<U> = U extends any ? Factories<U> : never;
 type CombinedEnvironment<E extends ReadonlyArray<Environment<any>>> = Environment<Distribute<E[number]>>
 export type DerivedEnvironment<Env extends Environment<unknown>, Ex extends Environment<unknown>> = CombinedEnvironment<[Env, Ex]>
 
-export function extend<E extends Environment<any>, P extends Environment<any>>(self: E, parent: P) {
-  const envs = [self, parent]
-
-  return new Proxy({}, {
+export function extend<E extends Environment<any>, P extends Environment<any>>({ parent, child }: {parent: P; child: E}) {
+  const proxy = new Proxy({}, {
     get(target, prop) {
-      const value = envs.find(env => prop in env)
-      if (value) {
-        return value[prop as keyof E]
-      }
+      return child[prop] || parent[prop]
     },
     set(target, prop, value) {
-      envs[0][prop as keyof E] = value
+      child[prop as keyof E] = value
 
       return true
     },
     has(target, prop) {
-      return envs.some(env => prop in env)
+      return prop in child || prop in parent
     },
-  }) as any as DerivedEnvironment<P, E>
+    ownKeys() {
+      const parentKeys = Object.getOwnPropertyNames(parent)
+      const childKeys = Object.getOwnPropertyNames(child)
+      return [...new Set([...parentKeys, ...childKeys]).values()]
+    },
+    getOwnPropertyDescriptor(target, prop) {
+      return {
+        enumerable: !prop.toString().startsWith('_'),
+        configurable: true,
+      }
+    },
+  })
+
+  return proxy as any as DerivedEnvironment<P, E>
 }
