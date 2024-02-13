@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.0.4
+
+### Patch Changes
+
+- 360d02c: Missing dependency on `@rdfjs/formats`
+
 ## 2.0.3
 
 ### Patch Changes
