@@ -32,6 +32,7 @@
     "@rdfjs/dataset": "^2.0.1",
     "@rdfjs/data-model": "^2.0.1",
     "@rdfjs/environment": "^1.0.0",
+    "@rdfjs/formats": "^4.0.0",
     "@rdfjs/namespace": "^2.0.0",
     "@rdfjs/term-map": "^2.0.0",
     "@rdfjs/term-set": "^2.0.1",
