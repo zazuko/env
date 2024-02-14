@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.0.5
+
+### Patch Changes
+
+- 02d83c8: Add peer dependency on `@rdfjs/types`
+
 ## 2.0.4
 
 ### Patch Changes
