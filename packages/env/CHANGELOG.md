@@ -1,5 +1,13 @@
 # @zazuko/env
 
+## 2.0.6
+
+### Patch Changes
+
+- ef30fa1: Extracted a new package `@zazuko/env-core` with the extended `@rdfjs/environment`
+- Updated dependencies [ef30fa1]
+  - @zazuko/env-core@1.0.0
+
 ## 2.0.5
 
 ### Patch Changes
