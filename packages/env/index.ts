@@ -9,7 +9,7 @@ import TraverserFactory from '@rdfjs/traverser/Factory.js'
 import Environment from './Environment.js'
 import DatasetFactory from './lib/DatasetFactory.js'
 
-export { DerivedEnvironment } from './lib/extend.js'
+export type { DerivedEnvironment } from '@zazuko/env-core/lib/extend.js'
 
 export function create() {
   return new Environment([

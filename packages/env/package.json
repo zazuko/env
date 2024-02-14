@@ -31,13 +31,13 @@
   "dependencies": {
     "@rdfjs/dataset": "^2.0.1",
     "@rdfjs/data-model": "^2.0.1",
-    "@rdfjs/environment": "^1.0.0",
     "@rdfjs/formats": "^4.0.0",
     "@rdfjs/namespace": "^2.0.0",
     "@rdfjs/term-map": "^2.0.0",
     "@rdfjs/term-set": "^2.0.1",
     "@rdfjs/traverser": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
+    "@zazuko/env-core": "^0.0.0",
     "@zazuko/prefixes": "^2.1.0",
     "clownface": "^2.0.2",
     "get-stream": "^8.0.1",
@@ -57,7 +57,7 @@
     "@types/rdfjs__formats": "^4.0.0"
   },
   "devDependencies": {
-    "@rdfjs-elements/formats-pretty": "^0.6.4",
+    "@rdfjs-elements/formats-pretty": "^0.6.7",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "chai": "^4.3.7",
