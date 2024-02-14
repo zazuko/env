@@ -4,3 +4,5 @@ node_modules/
 *.d.ts
 *.d.ts.map
 coverage/
+!packages/core/*.js
+!packages/core/*.d.ts

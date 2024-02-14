@@ -1,4 +1,4 @@
-import { Environment } from '@rdfjs/environment/Environment.js'
+import type { Environment } from '@rdfjs/environment/Environment.js'
 import DataFactory from '@rdfjs/data-model/Factory.js'
 import DatasetFactory from '@rdfjs/dataset/Factory.js'
 
