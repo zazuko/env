@@ -1,5 +1,11 @@
 # @zazuko/env-core
 
+## 1.0.1
+
+### Patch Changes
+
+- ed0bee7: Remove TS source from package
+
 ## 1.0.0
 
 ### Major Changes
