@@ -6,6 +6,12 @@
   "scripts": {
     "prepack": "tsc"
   },
+  "files": [
+    "Environment.js",
+    "Environment.d.ts",
+    "lib/extend.js",
+    "lib/extend.d.ts"
+  ],
   "dependencies": {
     "@rdfjs/environment": "^1.0.0"
   }
