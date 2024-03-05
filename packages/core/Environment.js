@@ -1,9 +1,14 @@
+import BaseEnvironment from '@rdfjs/environment/Environment.js'
 import { extend } from './lib/extend.js'
 
 export default class Environment {
-  constructor(factories, { parent, bind = false } = {}) {
+  constructor(factoriesOrChild, { parent, bind = false } = {}) {
     this._parent = parent
-    this._factories = factories.slice()
+    if (factoriesOrChild instanceof BaseEnvironment || factoriesOrChild instanceof Environment) {
+      return extend({ parent, child: factoriesOrChild })
+    }
+
+    this._factories = factoriesOrChild.slice()
 
     const extended = parent ? extend({ parent, child: this }) : this
 

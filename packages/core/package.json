@@ -4,6 +4,7 @@
   "type": "module",
   "main": "Environment.js",
   "scripts": {
+    "test": "mocha --package ../../package.json",
     "prepack": "tsc"
   },
   "files": [
@@ -14,5 +15,11 @@
   ],
   "dependencies": {
     "@rdfjs/environment": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rdfjs/namespace": "^2.0.0",
+    "@types/rdfjs__namespace": "^2.0.10",
+    "chai": "^4",
+    "mocha": "^10.2.0"
   }
 }
