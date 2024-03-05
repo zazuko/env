@@ -22,6 +22,11 @@ interface EnvironmentCtor {
     factories: Narrow<F>,
     options: { parent?: E; bind?: boolean },
   ): DerivedEnvironment<E, Environment<Distribute<F[number]>>>
+
+  new<C extends Environment<any>, E extends Environment<any>>(
+    extendingEnv: C,
+    options: { parent: E; bind?: boolean },
+  ): DerivedEnvironment<E, C>
 }
 
 declare const environment: EnvironmentCtor
