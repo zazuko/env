@@ -17,7 +17,9 @@
     "@rdfjs/environment": "^1.0.0"
   },
   "devDependencies": {
+    "@rdfjs/data-model": "^2.0.0",
     "@rdfjs/namespace": "^2.0.0",
+    "@types/rdfjs__data-model": "^2.0.7",
     "@types/rdfjs__namespace": "^2.0.10",
     "chai": "^4",
     "mocha": "^10.2.0"
