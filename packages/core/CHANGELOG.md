@@ -1,5 +1,11 @@
 # @zazuko/env-core
 
+## 1.1.1
+
+### Patch Changes
+
+- 3335142: Added peer dependency on RDF/JS Env
+
 ## 1.1.0
 
 ### Minor Changes
