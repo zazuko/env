@@ -1,5 +1,15 @@
 # @zazuko/env-core
 
+## 1.1.0
+
+### Minor Changes
+
+- c69e70d: Added the facility to create an environment from two existing instances
+
+### Patch Changes
+
+- e901708: export `CombinedEnvironment`
+
 ## 1.0.1
 
 ### Patch Changes
