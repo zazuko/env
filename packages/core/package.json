@@ -16,6 +16,9 @@
   "dependencies": {
     "@rdfjs/environment": "^1.0.0"
   },
+  "peerDependencies": {
+    "@types/rdfjs__environment": "^1.0.0"
+  },
   "devDependencies": {
     "@rdfjs/data-model": "^2.0.0",
     "@rdfjs/namespace": "^2.0.0",
