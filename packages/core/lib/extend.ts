@@ -4,7 +4,7 @@ import type { Environment } from '@rdfjs/environment/Environment.js'
 type Factories<E> = E extends Environment<infer F> ? F : never;
 type Distribute<U> = U extends any ? Factories<U> : never;
 
-type CombinedEnvironment<E extends ReadonlyArray<Environment<any>>> = Environment<Distribute<E[number]>>
+export type CombinedEnvironment<E extends ReadonlyArray<Environment<any>>> = Environment<Distribute<E[number]>>
 export type DerivedEnvironment<Env extends Environment<unknown>, Ex extends Environment<unknown>> = CombinedEnvironment<[Env, Ex]>
 
 export function extend<E extends Environment<any>, P extends Environment<any>>({ parent, child }: {parent: P; child: E}) {
