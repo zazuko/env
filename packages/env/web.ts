@@ -1,22 +1,6 @@
-import DataFactory from '@rdfjs/data-model/Factory.js'
-import DatasetFactory from '@rdfjs/dataset/Factory.js'
-import FormatsFactory from '@rdfjs/formats/Factory.js'
-import NamespaceFactory from '@rdfjs/namespace/Factory.js'
-import NsBuildersFactory from '@tpluscode/rdf-ns-builders'
-import ClownfaceFactory from 'clownface/Factory.js'
-import TermMapFactory from '@rdfjs/term-map/Factory.js'
-import TermSetFactory from '@rdfjs/term-set/Factory.js'
-import TraverserFactory from '@rdfjs/traverser/Factory.js'
+import DatasetFactory from './lib/DatasetFactory.js'
 import Environment from './Environment.js'
+import parent from './lib/env-no-dataset.js'
+import { Dataset } from './lib/Dataset.js'
 
-export default new Environment([
-  DataFactory,
-  DatasetFactory,
-  FormatsFactory,
-  NamespaceFactory,
-  NsBuildersFactory,
-  ClownfaceFactory,
-  TermMapFactory,
-  TermSetFactory,
-  TraverserFactory,
-])
+export default new Environment([DatasetFactory(() => Dataset)], { parent })
