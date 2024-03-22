@@ -4,7 +4,7 @@ import rdfDs from '@rdfjs/dataset'
 import prettyFormats from '@rdfjs-elements/formats-pretty'
 import toStream from 'rdf-dataset-ext/toStream.js'
 import { create, DefaultEnv } from '../index.js'
-import { Dataset } from '../lib/Dataset.js'
+import { Dataset } from '../lib/DatasetExt.js'
 
 declare module '../formats.js' {
   interface RdfFormat {
