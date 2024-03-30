@@ -1,5 +1,13 @@
 # @zazuko/env-node
 
+## 2.1.2
+
+### Patch Changes
+
+- ca67860: Package built with `moduleResolution=NodeNext`
+- Updated dependencies [ca67860]
+  - @zazuko/env@2.1.1
+
 ## 2.1.1
 
 ### Patch Changes
