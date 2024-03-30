@@ -1,6 +1,6 @@
 {
   "name": "@zazuko/env",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Zazuko's RDF/JS Environment",
   "type": "module",
   "main": "index.js",
@@ -37,7 +37,7 @@
     "@rdfjs/term-set": "^2.0.1",
     "@rdfjs/traverser": "^0.1.2",
     "@tpluscode/rdf-ns-builders": "^4.1.0",
-    "@zazuko/env-core": "^1.0.0",
+    "@zazuko/env-core": "^1.1.2",
     "@zazuko/prefixes": "^2.1.0",
     "clownface": "^2.0.2",
     "get-stream": "^8.0.1",
