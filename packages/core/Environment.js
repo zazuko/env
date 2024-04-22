@@ -1,6 +1,8 @@
 import BaseEnvironment from '@rdfjs/environment/Environment.js'
 import { extend } from './lib/extend.js'
 
+export { CombinedEnvironment, DerivedEnvironment } from './lib/extend.js'
+
 export default class Environment {
   constructor(factoriesOrChild, { parent, bind = false } = {}) {
     this._parent = parent
