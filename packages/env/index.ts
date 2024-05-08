@@ -1,5 +1,5 @@
 import Environment from './Environment.js'
-import DatasetFactory from './lib/DatasetFactory.js'
+import DatasetFactory from './lib/DatasetFactoryExt.js'
 import parent from './lib/env-no-dataset.js'
 import { createConstructor } from './lib/DatasetExt.js'
 
