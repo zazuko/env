@@ -25,6 +25,27 @@ This package may cause issues in the browser, so you can import the `@zazuko/env
 
 ### Dataset
 
+#### Static util functions
+
+The dataset factory implemented by the main module environment provides some static utility functions
+from the [rdf-dataset-ext](httos://npm.im/rdf-dataset-ext) package.
+
+```ts
+import { Stream, DatasetCore } from '@rdfjs/types'
+import env from '@zazuko/env'
+
+let stream: Stream
+
+// shorthand for creating a dataset from a stream
+const dataset: DatasetCore = await env.dataset.fromStream(stream)
+
+// stream any DatasetCore
+const streamFromCoreDataset: Stream = env.dataset.toStream(dataset)
+
+// convert any DatasetCore to a canonical form
+const canonicalQuads = env.dataset.toCanonical(dataset)
+```
+
 #### `rdf-ext` functionality
 
 The provided `DatasetCore` implementation provides additional methods, matching the `rdf-ext` interface.
