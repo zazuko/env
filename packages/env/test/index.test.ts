@@ -3,7 +3,6 @@ import $rdf from '@rdfjs/data-model'
 import rdfDs from '@rdfjs/dataset'
 import prettyFormats from '@rdfjs-elements/formats-pretty'
 import toStream from 'rdf-dataset-ext/toStream.js'
-import { getStreamAsArray } from 'get-stream'
 import env, { create, DefaultEnv } from '../index.js'
 import { Dataset } from '../lib/DatasetExt.js'
 
@@ -272,22 +271,22 @@ _:b1 sh:path schema:name .
       const dataset = env.dataset([quad])
 
       // when
-      const streamedQuads = await getStreamAsArray(env.dataset.toStream(dataset))
+      const streamedQuads = await env.dataset.fromStream(env.dataset.toStream(dataset))
 
       // then
-      expect(streamedQuads).to.deep.contain.members([quad])
+      expect(env.dataset.toCanonical(streamedQuads)).to.eq(env.dataset.toCanonical(dataset))
     })
 
     it('has fromStream utility', async () => {
       // given
       const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
-      const dataset = env.dataset([quad]).toStream()
+      const dataset = env.dataset([quad])
 
       // when
-      const streamedQuads = await env.dataset.fromStream(dataset)
+      const streamedQuads = await env.dataset.fromStream(dataset.toStream())
 
       // then
-      expect([...streamedQuads]).to.deep.contain.members([quad])
+      expect(env.dataset.toCanonical(streamedQuads)).to.eq(env.dataset.toCanonical(dataset))
     })
   })
 })
