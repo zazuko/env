@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 2.1.3
+
+### Patch Changes
+
+- d119491: Update generated types
+
 ## 2.1.2
 
 ### Patch Changes
