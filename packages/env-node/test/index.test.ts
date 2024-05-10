@@ -17,5 +17,11 @@ describe('@zazuko/env-node', () => {
         expect(roundTripped.toCanonical()).to.eq(dataset.toCanonical())
       }, { extension: 'ttl' })
     })
+
+    it('provides dataset factory static methods', () => {
+      expect(rdf.dataset).to.have.property('toCanonical').and.to.be.a('function')
+      expect(rdf.dataset).to.have.property('toStream').and.to.be.a('function')
+      expect(rdf.dataset).to.have.property('fromStream').and.to.be.a('function')
+    })
   })
 })
