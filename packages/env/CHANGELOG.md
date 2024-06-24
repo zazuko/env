@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.2.1
+
+### Patch Changes
+
+- e0bca67: Update `get-stream`
+
 ## 2.2.0
 
 ### Minor Changes
