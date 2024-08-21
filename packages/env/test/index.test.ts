@@ -22,6 +22,12 @@ describe('@zazuko/env', () => {
       })
 
       testStandardFactories()
+
+      for (const func of ['addAll', 'deleteMatch', 'equals'] as const) {
+        it(`has ${func} utility`, async () => {
+          expect(env.dataset[func]).to.be.a('function')
+        })
+      }
     })
 
     function testStandardFactories() {
