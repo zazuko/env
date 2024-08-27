@@ -1,5 +1,12 @@
 # @zazuko/env
 
+## 2.3.0
+
+### Minor Changes
+
+- 25e5a0e: Added `addAll`, `deleteMatch` and `equals` to `.dataset` factory for easy access
+- af4815c: Export interfaces of dataset factories
+
 ## 2.2.1
 
 ### Patch Changes
