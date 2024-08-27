@@ -7,6 +7,7 @@ import toStream from 'rdf-dataset-ext/toStream.js'
 import fromStream from 'rdf-dataset-ext/fromStream.js'
 import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import type { DatasetCtor } from './Dataset.js'
+import type { Dataset } from './DatasetExt.js'
 import DatasetFactory, { FactoryMethod as BaseFactoryMethod } from './DatasetFactory.js'
 
 export interface FactoryMethod<D extends DatasetCore> extends BaseFactoryMethod<D> {
@@ -15,10 +16,14 @@ export interface FactoryMethod<D extends DatasetCore> extends BaseFactoryMethod<
   fromStream: (stream: Readable) => Promise<D>
 }
 
-export default <D extends DatasetCore>(createConstructor: (env: Environment<FormatsFactory>) => DatasetCtor<D>) => class DatasetFactoryExt extends DatasetFactory(createConstructor) {
+export interface DatasetFactoryExt<D extends DatasetCore = Dataset> {
+  dataset: FactoryMethod<D>
+}
+
+export default <D extends DatasetCore>(createConstructor: (env: Environment<FormatsFactory>) => DatasetCtor<D>) => class extends DatasetFactory(createConstructor) implements DatasetFactoryExt<D> {
   public declare dataset: FactoryMethod<D>
 
-  init(this: Environment<FormatsFactory | DatasetFactoryExt>) {
+  init(this: Environment<FormatsFactory | DatasetFactoryExt<D>>) {
     super.init()
 
     this.dataset.toCanonical = toCanonical
