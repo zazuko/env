@@ -1,10 +1,6 @@
 import type { Readable } from 'stream'
-import DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import toStream from 'rdf-dataset-ext/toStream.js'
-import addAll from 'rdf-dataset-ext/addAll.js'
-import deleteMatch from 'rdf-dataset-ext/deleteMatch.js'
-import equals from 'rdf-dataset-ext/equals.js'
 import fromStream from 'rdf-dataset-ext/fromStream.js'
 import type * as Rdf from '@rdfjs/types'
 import type { Environment } from '@rdfjs/environment/Environment.js'
@@ -13,7 +9,7 @@ import getStream from 'get-stream'
 import knownPrefixes from '@zazuko/prefixes'
 import type { Prefixes } from '@zazuko/prefixes/prefixes'
 import { MediaType } from '../formats.js'
-import type { Dataset as SimplerDataset } from './Dataset.js'
+import { Dataset as SimplerDataset } from './Dataset.js'
 
 type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
 
@@ -44,41 +40,9 @@ export interface DatasetCtor {
 }
 
 export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor {
-  return class Dataset extends DatasetCore {
-    addAll(...[quads]: Rest<Parameters<typeof addAll>>) {
-      return addAll(this, quads)
-    }
-
-    deleteMatches(...args: Rest<Parameters<typeof deleteMatch>>) {
-      return deleteMatch(this, ...args)
-    }
-
-    equals(...[other]: Rest<Parameters<typeof equals>>) {
-      return equals(this, other)
-    }
-
-    forEach(callback:(quad: Rdf.Quad, dataset: typeof this) => void) {
-      Array.from(this).forEach(quad => callback(quad, this))
-    }
-
+  return class Dataset extends SimplerDataset {
     import(...[stream]: Rest<Parameters<typeof fromStream>>) {
       return fromStream(this, stream)
-    }
-
-    filter(filter: (quad: Rdf.Quad, dataset: typeof this) => boolean) {
-      return new Dataset([...this].filter(quad => filter(quad, this)))
-    }
-
-    map(callback: (quad: Rdf.Quad, dataset: typeof this) => Rdf.Quad) {
-      return new Dataset([...this].map(quad => callback(quad, this)))
-    }
-
-    match(...args: Parameters<DatasetCore['match']>) {
-      return super.match(...args) as unknown as Dataset
-    }
-
-    merge(...[other]: Rest<Parameters<typeof addAll>>) {
-      return addAll(new Dataset([...this]), other)
     }
 
     toCanonical() {
