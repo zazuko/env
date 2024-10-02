@@ -40,7 +40,7 @@ export interface DatasetCtor {
 }
 
 export function createConstructor(env: Environment<FormatsFactory>): DatasetCtor {
-  return class Dataset extends SimplerDataset {
+  return class extends SimplerDataset {
     import(...[stream]: Rest<Parameters<typeof fromStream>>) {
       return fromStream(this, stream)
     }
