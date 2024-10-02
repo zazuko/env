@@ -36,6 +36,10 @@ export class Dataset extends DatasetCore {
     return new (this.constructor as any)([...this].map(quad => callback(quad, this))) as any
   }
 
+  match(...args: Parameters<DatasetCore['match']>): this {
+    return super.match(...args) as any
+  }
+
   merge(...[other]: Rest<Parameters<typeof addAll>>): this {
     return addAll(new (this.constructor as any)([...this]), other) as any
   }
