@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.4.1
+
+### Patch Changes
+
+- 005ba97: Revert: `match` was inadvertently broken, with wrong return type
+
 ## 2.4.0
 
 ### Minor Changes
