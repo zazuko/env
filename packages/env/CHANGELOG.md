@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.4.2
+
+### Patch Changes
+
+- d834c94: Prevent `ReferenceError: Cannot access 'Dataset' before initialization` in vite
+
 ## 2.4.1
 
 ### Patch Changes
