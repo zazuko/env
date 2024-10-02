@@ -28,19 +28,15 @@ export class Dataset extends DatasetCore {
     Array.from(this).forEach(quad => callback(quad, this))
   }
 
-  filter(filter: (quad: Rdf.Quad, dataset: typeof this) => boolean) {
-    return new Dataset([...this].filter(quad => filter(quad, this)))
+  filter(filter: (quad: Rdf.Quad, dataset: typeof this) => boolean): this {
+    return new (this.constructor as any)([...this].filter(quad => filter(quad, this))) as any
   }
 
   map(callback: (quad: Rdf.Quad, dataset: typeof this) => Rdf.Quad): this {
-    return new Dataset([...this].map(quad => callback(quad, this))) as any
-  }
-
-  match(...args: Parameters<DatasetCore['match']>): this {
-    return super.match(...args) as any
+    return new (this.constructor as any)([...this].map(quad => callback(quad, this))) as any
   }
 
   merge(...[other]: Rest<Parameters<typeof addAll>>): this {
-    return addAll(new Dataset([...this]), other) as any
+    return addAll(new (this.constructor as any)([...this]), other) as any
   }
 }
