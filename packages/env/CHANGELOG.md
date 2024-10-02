@@ -1,5 +1,15 @@
 # @zazuko/env
 
+## 2.4.0
+
+### Minor Changes
+
+- e13e1bf: Export interfaces of dataset factories
+
+### Patch Changes
+
+- 52ccdc6: `DatasetExt#filter` was annotated with wrong return type
+
 ## 2.3.0
 
 ### Minor Changes
