@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 2.1.4
+
+### Patch Changes
+
+- 738f98c: Missing `@types/rdfjs__formats` dependency caused derived anvs to be typed as `Environment<any>`
+
 ## 2.1.3
 
 ### Patch Changes
