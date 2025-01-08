@@ -71,7 +71,7 @@ describe('DatasetExt', () => {
     // when
     const turtle = await dataset.serialize({
       format: 'text/turtle',
-      normaliseBlankNodes: true,
+      renameBlankNodes: true,
     })
 
     // then
