@@ -1,6 +1,6 @@
 import type { Environment } from '@rdfjs/environment/Environment.js'
-import DataFactory from '@rdfjs/data-model/Factory.js'
-import DatasetFactory from '@rdfjs/dataset/Factory.js'
+import type DataFactory from '@rdfjs/data-model/Factory.js'
+import type DatasetFactory from '@rdfjs/dataset/Factory.js'
 
 export class TestFactory {
   test(this: Environment<DataFactory | DatasetFactory>) {

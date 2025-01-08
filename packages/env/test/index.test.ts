@@ -3,8 +3,12 @@ import $rdf from '@rdfjs/data-model'
 import rdfDs from '@rdfjs/dataset'
 import prettyFormats from '@rdfjs-elements/formats-pretty'
 import toStream from 'rdf-dataset-ext/toStream.js'
-import env, { create, DefaultEnv } from '../index.js'
-import { Dataset } from '../lib/DatasetExt.js'
+import formats from '@rdfjs/formats'
+import type { DefaultEnv } from '../index.js'
+import env, { create } from '../index.js'
+import type { Dataset } from '../lib/DatasetExt.js'
+
+env.formats.import(formats)
 
 declare module '../formats.js' {
   interface RdfFormat {
@@ -48,7 +52,7 @@ describe('@zazuko/env', () => {
       })
 
       it('includes formats factory', () => {
-        expect(env.formats.serializers.import('text/turtle', toStream(rdfDs.dataset()))).to.be.null
+        expect(env.formats.serializers.import('text/turtle', toStream(rdfDs.dataset()))).to.be.ok
       })
 
       it('includes ns builders factory', () => {
@@ -293,6 +297,18 @@ _:b1 sh:path schema:name .
 
       // then
       expect(env.dataset.toCanonical(streamedQuads)).to.eq(env.dataset.toCanonical(dataset))
+    })
+
+    it('has serialize utility', async () => {
+      // given
+      const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
+      const dataset = env.dataset([quad])
+
+      // when
+      const serialized = await env.dataset.serialize(dataset, { format: 'text/turtle' })
+
+      // then
+      expect(serialized).to.include('<foo> <bar> <baz> .')
     })
   })
 })

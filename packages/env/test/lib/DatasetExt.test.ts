@@ -2,7 +2,7 @@ import FormatsFactory from '@rdfjs/formats/Factory.js'
 import { expect } from 'chai'
 import { createConstructor } from '../../lib/DatasetExt.js'
 import Environment from '../../Environment.js'
-import { Dataset } from '../../lib/Dataset.js'
+import type { Dataset } from '../../lib/Dataset.js'
 
 describe('DatasetExt', () => {
   const Dataset = createConstructor(new Environment([FormatsFactory]))

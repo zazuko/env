@@ -9,11 +9,13 @@ import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import type { DatasetCtor } from './Dataset.js'
 import type { Dataset } from './DatasetExt.js'
 import DatasetFactory, { FactoryMethod as BaseFactoryMethod } from './DatasetFactory.js'
+import { serialize, SerializeArgs } from './serialize.js'
 
 export interface FactoryMethod<D extends DatasetCore> extends BaseFactoryMethod<D> {
   toCanonical: (quads: DatasetCore) => string
   toStream: (quads: DatasetCore) => Readable & Stream
   fromStream: (stream: Readable) => Promise<D>
+  serialize: (quads: DatasetCore, args: SerializeArgs) => Promise<string>
 }
 
 export interface DatasetFactoryExt<D extends DatasetCore = Dataset> {
@@ -31,5 +33,10 @@ export default <D extends DatasetCore>(createConstructor: (env: Environment<Form
     this.dataset.fromStream = (stream) => {
       return fromStream(this.dataset(), stream)
     }
+    this.dataset.serialize = serialize.bind(null, this)
   }
+}
+
+function isDatasetExt(dataset: DatasetCore): dataset is Dataset {
+  return typeof (dataset as Dataset).serialize === 'function'
 }
