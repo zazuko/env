@@ -26,7 +26,7 @@ export interface DatasetFactoryExt<D extends DatasetCore = Dataset> {
   dataset: FactoryMethod<D>
 }
 
-export default <D extends DatasetCore>(createConstructor: (env: Environment<FormatsFactory>) => DatasetCtor<D>) => class extends DatasetFactory(createConstructor) implements DatasetFactoryExt<D> {
+export default <D extends DatasetCore>(createConstructor: (env: Environment<FormatsFactory | DataFactory | TermMapFactory>) => DatasetCtor<D>) => class extends DatasetFactory(createConstructor) implements DatasetFactoryExt<D> {
   public declare dataset: FactoryMethod<D>
 
   init(this: Environment<FormatsFactory | DatasetFactoryExt<D> | DataFactory | TermMapFactory>) {
