@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.5.1
+
+### Patch Changes
+
+- b0f7a85: `renameBlankNodes` cause a stream chunk issue
+
 ## 2.5.0
 
 ### Minor Changes
