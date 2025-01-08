@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Environment, FactoryConstructor } from '@rdfjs/environment/Environment.js'
-import { DerivedEnvironment } from './lib/extend.js'
+import type { DerivedEnvironment } from './lib/extend.js'
 
-export { DerivedEnvironment, CombinedEnvironment } from './lib/extend.js'
+export type { DerivedEnvironment, CombinedEnvironment } from './lib/extend.js'
 
 type Narrow<T> =
   | (T extends infer U ? U : never)
