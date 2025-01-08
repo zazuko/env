@@ -3,12 +3,15 @@ import { expect } from 'chai'
 import DataFactory from '@rdfjs/data-model/Factory.js'
 import { rdf, rdfs } from '@tpluscode/rdf-ns-builders'
 import TermMapFactory from '@rdfjs/term-map/Factory.js'
+import formats from '@rdfjs-elements/formats-pretty'
 import { createConstructor } from '../../lib/DatasetExt.js'
 import Environment from '../../Environment.js'
 import type { Dataset } from '../../lib/Dataset.js'
 
 describe('DatasetExt', () => {
   const env = new Environment([FormatsFactory, DataFactory, TermMapFactory])
+  env.formats.import(formats)
+
   const Dataset = createConstructor(env)
 
   describe('.filter', () => {
@@ -63,18 +66,21 @@ describe('DatasetExt', () => {
     })
   })
 
-  describe('.serialize', async () => {
-    // given
-    const dataset = new Dataset()
-    dataset.add(env.quad(env.blankNode(), rdf.type, rdfs.Resource))
+  describe('.serialize', () => {
+    it('can rename blank nodes', async () => {
+      // given
+      const dataset = new Dataset()
+      dataset.add(env.quad(env.blankNode(), rdf.type, rdfs.Resource))
 
-    // when
-    const turtle = await dataset.serialize({
-      format: 'text/turtle',
-      renameBlankNodes: true,
+      // when
+      const turtle = await dataset.serialize({
+        format: 'text/turtle',
+        prefixes: ['rdf', 'rdfs'],
+        renameBlankNodes: true,
+      })
+
+      // then
+      expect(turtle).to.include('_:t0 a rdfs:Resource .')
     })
-
-    // then
-    expect(turtle).to.include('_:t1 a rdfs:Resource .')
   })
 })

@@ -43,8 +43,8 @@ export function createConstructor(env: Environment<FormatsFactory | DataFactory 
       return toStream(this)
     }
 
-    async serialize({ format, prefixes = [] }: SerializeArgs): Promise<string> {
-      return serialize(env, this, { format, prefixes })
+    async serialize(args: SerializeArgs): Promise<string> {
+      return serialize(env, this, args)
     }
   }
 }

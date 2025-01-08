@@ -40,7 +40,3 @@ export default <D extends DatasetCore>(createConstructor: (env: Environment<Form
     this.dataset.serialize = serialize.bind(null, this)
   }
 }
-
-function isDatasetExt(dataset: DatasetCore): dataset is Dataset {
-  return typeof (dataset as Dataset).serialize === 'function'
-}

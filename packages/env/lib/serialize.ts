@@ -54,7 +54,7 @@ class RenameBlankNodes extends Transform {
   private readonly blankNodes: Map<BlankNode, BlankNode>
 
   constructor(private readonly env: Environment<DataFactory | TermMapFactory>) {
-    super()
+    super({ objectMode: true })
 
     this.blankNodes = env.termMap()
   }
