@@ -3,9 +3,10 @@ import toStream from 'rdf-dataset-ext/toStream.js'
 import fromStream from 'rdf-dataset-ext/fromStream.js'
 import type * as Rdf from '@rdfjs/types'
 import type { Environment } from '@rdfjs/environment/Environment.js'
-import { FormatsFactory } from '@rdfjs/formats/Factory.js'
+import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
 import { Dataset as SimplerDataset } from './Dataset.js'
-import { serialize, SerializeArgs } from './serialize.js'
+import type { SerializeArgs } from './serialize.js'
+import { serialize } from './serialize.js'
 
 type Rest<A extends unknown[]> = A extends [unknown, ...infer U] ? U : never
 

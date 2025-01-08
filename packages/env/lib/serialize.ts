@@ -1,13 +1,13 @@
 import type { Readable } from 'stream'
 import type { Prefixes } from '@zazuko/prefixes/prefixes'
-import { Environment } from '@rdfjs/environment/Environment.js'
-import { FormatsFactory } from '@rdfjs/formats/Factory.js'
+import type { Environment } from '@rdfjs/environment/Environment.js'
+import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
 import getStream from 'get-stream'
 import knownPrefixes from '@zazuko/prefixes'
-import DatasetCore from '@rdfjs/dataset/DatasetCore.js'
+import type DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import toStream from 'rdf-dataset-ext/toStream.js'
-import { MediaType } from '../formats.js'
+import type { MediaType } from '../formats.js'
 
 export interface SerializeArgs {
   format: MediaType
