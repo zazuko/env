@@ -1,5 +1,12 @@
 # @zazuko/env
 
+## 2.5.0
+
+### Minor Changes
+
+- ab62430: Added `env.dataset.serialize` function
+- 779422a: Added `renameBlankNode` parameter to `serialize` method
+
 ## 2.4.2
 
 ### Patch Changes
