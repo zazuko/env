@@ -19,7 +19,7 @@ const sheldonCooper = env.clownface()
 ## Browser usage
 
 The main export includes `rdf-dataset-ext` package to extend the dataset's functionality. 
-This package may cause issues in the browser, so you can import the `@zazuko/env/web.js` instead.
+This package may cause issues in the browser, so you can import `@zazuko/env/web.js` instead.
 
 ## Additional features
 
