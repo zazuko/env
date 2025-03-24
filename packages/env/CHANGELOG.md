@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 2.5.2
+
+### Patch Changes
+
+- 567078b: Added factory utility `#import` which loads a stream to any dataset
+
 ## 2.5.1
 
 ### Patch Changes
