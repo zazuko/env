@@ -2,4 +2,4 @@
 "@zazuko/env": patch
 ---
 
-Correct return type of `Dataset` methods which return new instances
+Added factory utility `#import` which loads a stream to any dataset

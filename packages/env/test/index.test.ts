@@ -310,5 +310,18 @@ _:b1 sh:path schema:name .
       // then
       expect(serialized).to.include('<foo> <bar> <baz> .')
     })
+
+    it('has import utility', async () => {
+      // given
+      const datasetCore = rdfDs.dataset()
+      const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
+      const dataset = env.dataset([quad])
+
+      // when
+      await env.dataset.import(datasetCore, dataset.toStream())
+
+      // then
+      expect(env.dataset.toCanonical(datasetCore)).to.eq(dataset.toCanonical())
+    })
   })
 })

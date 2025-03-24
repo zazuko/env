@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-declaration-merging */
 import DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import addAll from 'rdf-dataset-ext/addAll.js'
 import deleteMatch from 'rdf-dataset-ext/deleteMatch.js'
@@ -11,29 +11,7 @@ export interface DatasetCtor<D extends Rdf.DatasetCore> {
   new(quads?: Rdf.Quad[]): D
 }
 
-export function ThisReturningMethods<D extends DatasetCore>(Base: DatasetCtor<D>) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  return class extends Base {
-    filter(filter: (quad: Rdf.Quad, dataset: typeof this) => boolean): D {
-      return new (this.constructor as any)([...this].filter(quad => filter(quad, this)))
-    }
-
-    map(callback: (quad: Rdf.Quad, dataset: typeof this) => Rdf.Quad): D {
-      return new (this.constructor as any)([...this].map(quad => callback(quad, this)))
-    }
-
-    match(...args: Parameters<DatasetCore['match']>): D {
-      return super.match(...args) as any
-    }
-
-    merge(...[other]: Rest<Parameters<typeof addAll>>): D {
-      return addAll(new (this.constructor as any)([...this]), other)
-    }
-  }
-}
-
-export class Dataset extends ThisReturningMethods(DatasetCore) {
+export class Dataset extends DatasetCore {
   addAll(...[quads]: Rest<Parameters<typeof addAll>>) {
     return addAll(this, quads)
   }
@@ -48,5 +26,21 @@ export class Dataset extends ThisReturningMethods(DatasetCore) {
 
   forEach(callback:(quad: Rdf.Quad, dataset: typeof this) => void) {
     Array.from(this).forEach(quad => callback(quad, this))
+  }
+
+  filter(filter: (quad: Rdf.Quad, dataset: typeof this) => boolean): this {
+    return new (this.constructor as any)([...this].filter(quad => filter(quad, this))) as any
+  }
+
+  map(callback: (quad: Rdf.Quad, dataset: typeof this) => Rdf.Quad): this {
+    return new (this.constructor as any)([...this].map(quad => callback(quad, this))) as any
+  }
+
+  match(...args: Parameters<DatasetCore['match']>): this {
+    return super.match(...args) as any
+  }
+
+  merge(...[other]: Rest<Parameters<typeof addAll>>): this {
+    return addAll(new (this.constructor as any)([...this]), other) as any
   }
 }

@@ -8,6 +8,7 @@ import fromStream from 'rdf-dataset-ext/fromStream.js'
 import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import type DataFactory from '@rdfjs/data-model/Factory.js'
 import type { TermMapFactory } from '@rdfjs/term-map/Factory.js'
+import addAll from 'rdf-dataset-ext/addAll.js'
 import type { DatasetCtor } from './Dataset.js'
 import type { Dataset } from './DatasetExt.js'
 import type { FactoryMethod as BaseFactoryMethod } from './DatasetFactory.js'
@@ -18,8 +19,9 @@ import { serialize } from './serialize.js'
 export interface FactoryMethod<D extends DatasetCore> extends BaseFactoryMethod<D> {
   toCanonical: (quads: DatasetCore) => string
   toStream: (quads: DatasetCore) => Readable & Stream
-  fromStream: (stream: Readable) => Promise<D>
+  fromStream: (stream: Parameters<typeof fromStream>[1]) => Promise<D>
   serialize: (quads: DatasetCore, args: SerializeArgs) => Promise<string>
+  import<X extends DatasetCore>(dataset: X, stream: Parameters<typeof fromStream>[1]): Promise<X>
 }
 
 export interface DatasetFactoryExt<D extends DatasetCore = Dataset> {
@@ -38,5 +40,8 @@ export default <D extends DatasetCore>(createConstructor: (env: Environment<Form
       return fromStream(this.dataset(), stream)
     }
     this.dataset.serialize = serialize.bind(null, this)
+    this.dataset.import = async (d, stream) => {
+      return addAll(d, await this.dataset.fromStream(stream))
+    }
   }
 }
