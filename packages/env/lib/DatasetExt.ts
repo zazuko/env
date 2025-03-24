@@ -6,7 +6,7 @@ import type { Environment } from '@rdfjs/environment/Environment.js'
 import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
 import type DataFactory from '@rdfjs/data-model/Factory.js'
 import type { TermMapFactory } from '@rdfjs/term-map/Factory.js'
-import { Dataset as SimplerDataset } from './Dataset.js'
+import { Dataset as SimplerDataset, ThisReturningMethods } from './Dataset.js'
 import type { SerializeArgs } from './serialize.js'
 import { serialize } from './serialize.js'
 
@@ -30,7 +30,7 @@ export interface DatasetCtor {
 }
 
 export function createConstructor(env: Environment<FormatsFactory | DataFactory | TermMapFactory>): DatasetCtor {
-  return class extends SimplerDataset {
+  return class extends ThisReturningMethods(SimplerDataset) {
     import(...[stream]: Rest<Parameters<typeof fromStream>>) {
       return fromStream(this, stream)
     }
