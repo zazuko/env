@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-declaration-merging */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import addAll from 'rdf-dataset-ext/addAll.js'
 import deleteMatch from 'rdf-dataset-ext/deleteMatch.js'
