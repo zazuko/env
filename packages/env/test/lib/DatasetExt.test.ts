@@ -6,7 +6,7 @@ import TermMapFactory from '@rdfjs/term-map/Factory.js'
 import formats from '@rdfjs-elements/formats-pretty'
 import { createConstructor } from '../../lib/DatasetExt.js'
 import Environment from '../../Environment.js'
-import type { Dataset } from '../../lib/Dataset.js'
+import type { Dataset } from '../../lib/DatasetExt.js'
 
 describe('DatasetExt', () => {
   const env = new Environment([FormatsFactory, DataFactory, TermMapFactory])
