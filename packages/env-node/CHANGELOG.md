@@ -1,5 +1,13 @@
 # @zazuko/env-node
 
+## 2.1.5
+
+### Patch Changes
+
+- a95c245: Updated all types packages to use `@rdfjs/types` v2
+- Updated dependencies [a95c245]
+  - @zazuko/env@2.5.3
+
 ## 2.1.4
 
 ### Patch Changes
