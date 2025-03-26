@@ -1,5 +1,11 @@
 # @zazuko/env-bundle
 
+## 2.0.0
+
+### Major Changes
+
+- 4617737: Updated vocabulary builders (breaking changes to QUDT and RiCO namespaces)
+
 ## 1.3.0
 
 ### Minor Changes
