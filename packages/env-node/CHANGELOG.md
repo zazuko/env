@@ -1,5 +1,16 @@
 # @zazuko/env-node
 
+## 3.0.0
+
+### Major Changes
+
+- 4617737: Updated vocabulary builders (breaking changes to QUDT and RiCO namespaces)
+
+### Patch Changes
+
+- Updated dependencies [4617737]
+  - @zazuko/env@3.0.0
+
 ## 2.1.5
 
 ### Patch Changes
