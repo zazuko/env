@@ -34,11 +34,11 @@
     "@zazuko/rdf-utils-fs": "^3.3.0"
   },
   "peerDependencies": {
-    "@types/rdfjs__fetch-lite": "^3.0.6",
-    "@types/rdfjs__formats": "^4"
+    "@types/rdfjs__fetch-lite": "^3.0.11",
+    "@types/rdfjs__formats": "^4.0.1"
   },
   "devDependencies": {
-    "@types/rdfjs__formats": "^4",
+    "@types/rdfjs__formats": "^4.0.1",
     "chai": "^4.3.7",
     "tempy": "^3.1.0"
   }
