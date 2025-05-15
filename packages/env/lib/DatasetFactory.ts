@@ -1,4 +1,4 @@
-import type { Quad } from '@rdfjs/types'
+import type { BaseQuad, Quad } from '@rdfjs/types'
 import type { Environment } from '@rdfjs/environment/Environment.js'
 import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
 import type DatasetCore from '@rdfjs/dataset/DatasetCore.js'
@@ -10,8 +10,8 @@ import type DataFactory from '@rdfjs/data-model/Factory.js'
 import type { Dataset, DatasetCtor } from './Dataset.js'
 
 export interface FactoryMethod<D extends DatasetCore> {
-  addAll: typeof addAll<Quad, D>
-  deleteMatch: typeof deleteMatch<D>
+  addAll(dataset: D, iterable: Iterable<BaseQuad>): D
+  deleteMatch(dataset: D, ...arg: Parameters<DatasetCore['match']>): D
   equals: typeof equals
   (quads?: Iterable<Quad>): D
   Class: DatasetCtor<D>
