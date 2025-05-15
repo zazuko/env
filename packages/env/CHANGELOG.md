@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 3.0.1
+
+### Patch Changes
+
+- 494f428: Fixes a typing issue where `DatasetFactoryExt` was not assignable to `DatasetFactory`
+
 ## 3.0.0
 
 ### Major Changes
