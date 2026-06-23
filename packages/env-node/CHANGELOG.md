@@ -1,5 +1,11 @@
 # @zazuko/env-node
 
+## 3.1.0
+
+### Minor Changes
+
+- 97352ff: Use `fetch`-native fetch factory
+
 ## 3.0.0
 
 ### Major Changes
