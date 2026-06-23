@@ -2,7 +2,7 @@ import formats from '@rdfjs/formats'
 import baseEnv from '@zazuko/env'
 import Environment from '@zazuko/env/Environment.js'
 import FsUtilsFactory from '@zazuko/rdf-utils-fs/Factory.js'
-import FetchFactory from '@rdfjs/fetch-lite/Factory.js'
+import FetchFactory from '@zazuko/rdf-fetch/Factory.js'
 
 export { default as Environment } from '@zazuko/env/Environment.js'
 
