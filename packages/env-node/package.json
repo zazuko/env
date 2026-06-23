@@ -28,7 +28,7 @@
   "author": "Zazuko GmbH",
   "license": "MIT",
   "dependencies": {
-    "@rdfjs/fetch-lite": "^3.2.2",
+    "@zazuko/rdf-fetch": "^1.0.2",
     "@rdfjs/formats": "^4.0.0",
     "@zazuko/env": "^3.0.0",
     "@zazuko/rdf-utils-fs": "^3.3.0"
