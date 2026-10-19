@@ -24,7 +24,7 @@ export class Dataset extends DatasetCore {
     return equals(this, other)
   }
 
-  forEach(callback:(quad: Rdf.Quad, dataset: typeof this) => void) {
+  forEach(callback: (quad: Rdf.Quad, dataset: typeof this) => void) {
     Array.from(this).forEach(quad => callback(quad, this))
   }
 

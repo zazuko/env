@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Environment } from '@rdfjs/environment/Environment.js'
 
-type Factories<E> = E extends Environment<infer F> ? F : never;
-type Distribute<U> = U extends any ? Factories<U> : never;
+type Factories<E> = E extends Environment<infer F> ? F : never
+type Distribute<U> = U extends any ? Factories<U> : never
 
 export type CombinedEnvironment<E extends ReadonlyArray<Environment<any>>> = Environment<Distribute<E[number]>>
 export type DerivedEnvironment<Env extends Environment<unknown>, Ex extends Environment<unknown>> = CombinedEnvironment<[Env, Ex]>
 
-export function extend<E extends Environment<any>, P extends Environment<any>>({ parent, child }: {parent: P; child: E}) {
+export function extend<E extends Environment<any>, P extends Environment<any>>({ parent, child }: { parent: P, child: E }) {
   const proxy = new Proxy({}, {
     get(target, prop) {
       return child[prop] || parent[prop]

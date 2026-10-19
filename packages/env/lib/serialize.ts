@@ -1,5 +1,5 @@
-import type { Readable } from 'stream'
-import { Transform } from 'stream'
+import type { Readable } from 'node:stream'
+import { Transform } from 'node:stream'
 import type { Prefixes } from '@zazuko/prefixes/prefixes'
 import type { Environment } from '@rdfjs/environment/Environment.js'
 import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
@@ -75,7 +75,8 @@ class RenameBlankNodes extends Transform {
 
     if (!replaced) {
       callback(null, chunk)
-    } else {
+    }
+    else {
       callback(null, this.env.quad<Quad>(subject, predicate, object))
     }
   }

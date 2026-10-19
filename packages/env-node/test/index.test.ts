@@ -2,9 +2,9 @@ import { temporaryFileTask } from 'tempy'
 import { expect } from 'chai'
 import rdf from '../index.js'
 
-describe('@zazuko/env-node', () => {
-  describe('env', () => {
-    it('provides toFile and fromFile method', async () => {
+describe('@zazuko/env-node', function () {
+  describe('env', function () {
+    it('provides toFile and fromFile method', async function () {
       await temporaryFileTask(async (path) => {
         // given
         const dataset = rdf.dataset()
@@ -18,7 +18,7 @@ describe('@zazuko/env-node', () => {
       }, { extension: 'ttl' })
     })
 
-    it('provides dataset factory static methods', () => {
+    it('provides dataset factory static methods', function () {
       expect(rdf.dataset).to.have.property('toCanonical').and.to.be.a('function')
       expect(rdf.dataset).to.have.property('toStream').and.to.be.a('function')
       expect(rdf.dataset).to.have.property('fromStream').and.to.be.a('function')

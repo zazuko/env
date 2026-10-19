@@ -8,14 +8,14 @@ import { createConstructor } from '../../lib/DatasetExt.js'
 import Environment from '../../Environment.js'
 import type { Dataset } from '../../lib/DatasetExt.js'
 
-describe('DatasetExt', () => {
+describe('DatasetExt', function () {
   const env = new Environment([FormatsFactory, DataFactory, TermMapFactory])
   env.formats.import(formats)
 
   const Dataset = createConstructor(env)
 
-  describe('.filter', () => {
-    it('returns instance of its type', () => {
+  describe('.filter', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -27,8 +27,8 @@ describe('DatasetExt', () => {
     })
   })
 
-  describe('.match', () => {
-    it('returns instance of its type', () => {
+  describe('.match', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -40,8 +40,8 @@ describe('DatasetExt', () => {
     })
   })
 
-  describe('.merge', () => {
-    it('returns instance of its type', () => {
+  describe('.merge', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -53,8 +53,8 @@ describe('DatasetExt', () => {
     })
   })
 
-  describe('.map', () => {
-    it('returns instance of its type', () => {
+  describe('.map', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -66,8 +66,8 @@ describe('DatasetExt', () => {
     })
   })
 
-  describe('.serialize', () => {
-    it('can rename blank nodes', async () => {
+  describe('.serialize', function () {
+    it('can rename blank nodes', async function () {
       // given
       const dataset = new Dataset()
       dataset.add(env.quad(env.blankNode(), rdf.type, rdfs.Resource))

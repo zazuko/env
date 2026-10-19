@@ -5,8 +5,8 @@ import { schema } from '@tpluscode/rdf-ns-builders'
 import Environment from '../Environment.js'
 import { TestFactory } from './TestFactory.js'
 
-describe('Environment with parent', () => {
-  it('merges all factories', () => {
+describe('Environment with parent', function () {
+  it('merges all factories', function () {
     // given
     const dataEnv = new Environment([DataFactory])
 
@@ -19,7 +19,7 @@ describe('Environment with parent', () => {
     expect(env.namedNode('http://schema.org/Person')).to.deep.eq(schema.Person)
   })
 
-  it('merge multiple levels', () => {
+  it('merge multiple levels', function () {
     // given
     const dataEnv = new Environment([DataFactory])
     const datasetEnv = new Environment([DatasetFactory], { parent: dataEnv })
@@ -32,7 +32,7 @@ describe('Environment with parent', () => {
     expect(test.size).to.eq(1)
   })
 
-  it('extending multiple times does not modify parent', () => {
+  it('extending multiple times does not modify parent', function () {
     // given
     const parent = new Environment([])
 
@@ -55,7 +55,7 @@ describe('Environment with parent', () => {
     expect(child2.foo).to.eq('bar2')
   })
 
-  it('should list all object keys', () => {
+  it('should list all object keys', function () {
     // given
     const dataEnv = new Environment([DataFactory])
     const datasetEnv = new Environment([DatasetFactory], { parent: dataEnv })
