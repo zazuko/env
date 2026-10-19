@@ -36,7 +36,6 @@
     "@rdfjs/term-map": "^2.0.0",
     "@rdfjs/term-set": "^2.0.1",
     "@rdfjs/traverser": "^0.1.2",
-    "@tpluscode/rdf-ns-builders": "^5",
     "@zazuko/env-core": "^1.1.2",
     "@zazuko/prefixes": "^2.1.0",
     "clownface": "^2.0.2",
@@ -45,6 +44,7 @@
   },
   "peerDependencies": {
     "@rdfjs/types": "^2",
+    "@tpluscode/rdf-ns-builders": ">=5",
     "@types/clownface": "^2.0.0",
     "@types/rdf-dataset-ext": "^1.0.8",
     "@types/rdfjs__dataset": "^2.0.7",
@@ -57,6 +57,7 @@
     "@types/rdfjs__formats": "^4.0.1"
   },
   "devDependencies": {
+    "@tpluscode/rdf-ns-builders": "^5",
     "@rdfjs-elements/formats-pretty": "^0.6.7",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
