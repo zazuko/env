@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --quiet",
-    "test": "wsrun -sm --report --no-prefix test",
+    "test": "npm test --workspaces --if-present",
     "release": "changeset publish"
   },
   "author": "Zazuko GmbH",
@@ -23,8 +23,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.7",
     "ts-node": "^10.9.1",
-    "typescript": "^5.3.3",
-    "wsrun": "^5.2.4"
+    "typescript": "^5.3.3"
   },
   "lint-staged": {
     "*.js": [
