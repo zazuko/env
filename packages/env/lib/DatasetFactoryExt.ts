@@ -35,7 +35,9 @@ export default <D extends DatasetCore>(createConstructor: (env: Environment<Form
     super.init()
 
     this.dataset.toCanonical = toCanonical
-    this.dataset.toStream = toStream
+    this.dataset.toStream = (dataset) => {
+      return toStream(dataset) as unknown as Readable & Stream
+    }
     this.dataset.fromStream = (stream) => {
       return fromStream(this.dataset(), stream)
     }

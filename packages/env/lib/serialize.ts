@@ -9,7 +9,7 @@ import type DatasetCore from '@rdfjs/dataset/DatasetCore.js'
 import toCanonical from 'rdf-dataset-ext/toCanonical.js'
 import toStream from 'rdf-dataset-ext/toStream.js'
 import type { TermMapFactory } from '@rdfjs/term-map/Factory.js'
-import type { BlankNode, Quad } from '@rdfjs/types'
+import type { BlankNode, Quad, Stream } from '@rdfjs/types'
 import type DataFactory from '@rdfjs/data-model/Factory.js'
 import type { MediaType } from '../formats.js'
 
@@ -30,12 +30,12 @@ export async function serialize(env: Environment<DataFactory | FormatsFactory | 
     return toCanonical(dataset)
   }
 
-  let stream: Readable = toStream(dataset)
+  let stream = toStream(dataset) as unknown as Stream & Readable
   if (renameBlankNodes) {
     stream = stream.pipe(new RenameBlankNodes(env))
   }
 
-  return getStream(<Readable>serializer.import(stream, {
+  return getStream(serializer.import(stream, {
     prefixes: prefixes.reduce((map, prefix) => {
       if (Array.isArray(prefix)) {
         return { ...map, [prefix[0]]: prefix[1] }
