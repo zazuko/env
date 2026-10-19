@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import { Dataset } from '../../lib/Dataset.js'
 
-describe('Dataset', () => {
-  describe('.filter', () => {
-    it('returns instance of its type', () => {
+describe('Dataset', function () {
+  describe('.filter', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -15,8 +15,8 @@ describe('Dataset', () => {
     })
   })
 
-  describe('.match', () => {
-    it('returns instance of its type', () => {
+  describe('.match', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -28,8 +28,8 @@ describe('Dataset', () => {
     })
   })
 
-  describe('.merge', () => {
-    it('returns instance of its type', () => {
+  describe('.merge', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 
@@ -41,8 +41,8 @@ describe('Dataset', () => {
     })
   })
 
-  describe('.map', () => {
-    it('returns instance of its type', () => {
+  describe('.map', function () {
+    it('returns instance of its type', function () {
       // given
       const dataset = new Dataset()
 

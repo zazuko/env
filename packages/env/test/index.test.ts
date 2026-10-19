@@ -16,66 +16,66 @@ declare module '../formats.js' {
   }
 }
 
-describe('@zazuko/env', () => {
-  describe('create', () => {
+describe('@zazuko/env', function () {
+  describe('create', function () {
     let env: ReturnType<typeof create>
 
-    context('without additional factories', () => {
-      before(() => {
+    context('without additional factories', function () {
+      before(function () {
         env = create()
       })
 
       testStandardFactories()
 
       for (const func of ['addAll', 'deleteMatch', 'equals'] as const) {
-        it(`has ${func} utility`, async () => {
+        it(`has ${func} utility`, async function () {
           expect(env.dataset[func]).to.be.a('function')
         })
       }
     })
 
     function testStandardFactories() {
-      it('includes include clownface factory', () => {
+      it('includes include clownface factory', function () {
         expect(env.clownface().namedNode('http://example.com/foo').term).to.deep.eq($rdf.namedNode('http://example.com/foo'))
       })
 
-      it('includes dataset factory', () => {
+      it('includes dataset factory', function () {
         expect(env.dataset().size).to.eq(0)
       })
 
-      it('includes data factory', () => {
+      it('includes data factory', function () {
         expect(env.namedNode('http://example.com/foo')).to.deep.eq($rdf.namedNode('http://example.com/foo'))
       })
 
-      it('includes namespace factory', () => {
+      it('includes namespace factory', function () {
         expect(env.namespace('http://example.com/').foo).to.deep.eq($rdf.namedNode('http://example.com/foo'))
       })
 
-      it('includes formats factory', () => {
+      it('includes formats factory', function () {
         expect(env.formats.serializers.import('text/turtle', toStream(rdfDs.dataset()))).to.be.ok
       })
 
-      it('includes ns builders factory', () => {
+      it('includes ns builders factory', function () {
         expect(env.ns.schema.Person).to.deep.eq($rdf.namedNode('http://schema.org/Person'))
       })
 
-      it('includes term set factory', () => {
+      it('includes term set factory', function () {
         expect(env.termSet()).to.be.ok
       })
 
-      it('includes term map factory', () => {
+      it('includes term map factory', function () {
         expect(env.termMap()).to.be.ok
       })
 
-      context('serialize', () => {
+      context('serialize', function () {
         let rdf: DefaultEnv
 
-        beforeEach(() => {
+        beforeEach(function () {
           rdf = create()
           rdf.formats.import(prettyFormats)
         })
 
-        it('uses the selected formatter', async () => {
+        it('uses the selected formatter', async function () {
           const ex = rdf.namespace('http://example.com/')
           const dataset = rdf.dataset().add(env.quad(ex.john, rdf.ns.schema.name, env.literal('John')))
 
@@ -89,7 +89,7 @@ describe('@zazuko/env', () => {
           })
         })
 
-        it('supports prefixes', async () => {
+        it('supports prefixes', async function () {
           const dataset = rdf.dataset().add(env.quad(rdf.blankNode(), rdf.ns.sh.path, rdf.ns.schema.name))
 
           // when
@@ -110,7 +110,7 @@ _:b1 sh:path schema:name .
 `)
         })
 
-        it('outputs canonical quads when unsupported serializer is selected', async () => {
+        it('outputs canonical quads when unsupported serializer is selected', async function () {
           const ex = rdf.namespace('http://example.com/')
           const dataset = rdf.dataset().add(env.quad(ex.john, rdf.ns.schema.name, env.literal('John')))
 
@@ -122,22 +122,22 @@ _:b1 sh:path schema:name .
         })
       })
 
-      context('match', () => {
-        it('return instance of self', () => {
+      context('match', function () {
+        it('return instance of self', function () {
           const dataset = env.dataset()
 
           expect(dataset.match()).to.be.instanceof(env.dataset.Class)
         })
       })
 
-      context('dataset-ext methods', () => {
+      context('dataset-ext methods', function () {
         let dataset: Dataset
 
-        beforeEach(() => {
+        beforeEach(function () {
           dataset = env.dataset()
         })
 
-        it('implements addAll', () => {
+        it('implements addAll', function () {
           // when
           dataset.addAll([
             env.quad(env.blankNode(), env.blankNode(), env.blankNode()),
@@ -149,7 +149,7 @@ _:b1 sh:path schema:name .
           expect(dataset.size).to.eq(2)
         })
 
-        it('implements merge', () => {
+        it('implements merge', function () {
           // given
           dataset.add(env.quad(env.blankNode(), env.namedNode('foo'), env.blankNode()))
 
@@ -163,11 +163,11 @@ _:b1 sh:path schema:name .
           expect(dataset.size).to.eq(1)
         })
 
-        it('implements equals', () => {
+        it('implements equals', function () {
           expect(dataset.equals(env.dataset())).to.be.true
         })
 
-        it('implements deleteMatches', () => {
+        it('implements deleteMatches', function () {
           // given
           const s = env.blankNode()
           const p = env.namedNode('bar')
@@ -181,7 +181,7 @@ _:b1 sh:path schema:name .
           expect(dataset.size).to.eq(0)
         })
 
-        it('implements deleteMatches graph removal', () => {
+        it('implements deleteMatches graph removal', function () {
           // given
           const s = env.blankNode()
           const p = env.namedNode('bar')
@@ -194,7 +194,7 @@ _:b1 sh:path schema:name .
           expect(dataset.deleteMatches(s, p, o, g).size).to.eq(0)
         })
 
-        it('implements filter', () => {
+        it('implements filter', function () {
           // given
           const s = env.namedNode('s')
           const o = env.namedNode('p')
@@ -212,7 +212,7 @@ _:b1 sh:path schema:name .
           ])
         })
 
-        it('implements to/fromStream', async () => {
+        it('implements to/fromStream', async function () {
           // given
           const s = env.blankNode()
           const p = env.namedNode('bar')
@@ -225,7 +225,7 @@ _:b1 sh:path schema:name .
           expect(fromStream.equals(dataset)).to.be.true
         })
 
-        it('implements toCanonical', () => {
+        it('implements toCanonical', function () {
           // given
           const s = env.namedNode('foo')
           const p = env.namedNode('bar')
@@ -236,7 +236,7 @@ _:b1 sh:path schema:name .
           expect(dataset.toCanonical()).to.eq('<foo> <bar> <baz> .\n')
         })
 
-        it('implements map', () => {
+        it('implements map', function () {
           // given
           const s = env.namedNode('foo')
           const p = env.namedNode('bar')
@@ -254,7 +254,7 @@ _:b1 sh:path schema:name .
           expect(dataset.equals(expected)).to.be.true
         })
 
-        it('implements forEach', () => {
+        it('implements forEach', function () {
           // given
           const s = env.namedNode('foo')
           const p = env.namedNode('bar')
@@ -274,8 +274,8 @@ _:b1 sh:path schema:name .
     }
   })
 
-  describe('dataset factory ext', () => {
-    it('has toStream utility', async () => {
+  describe('dataset factory ext', function () {
+    it('has toStream utility', async function () {
       // given
       const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
       const dataset = env.dataset([quad])
@@ -287,7 +287,7 @@ _:b1 sh:path schema:name .
       expect(env.dataset.toCanonical(streamedQuads)).to.eq(env.dataset.toCanonical(dataset))
     })
 
-    it('has fromStream utility', async () => {
+    it('has fromStream utility', async function () {
       // given
       const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
       const dataset = env.dataset([quad])
@@ -299,7 +299,7 @@ _:b1 sh:path schema:name .
       expect(env.dataset.toCanonical(streamedQuads)).to.eq(env.dataset.toCanonical(dataset))
     })
 
-    it('has serialize utility', async () => {
+    it('has serialize utility', async function () {
       // given
       const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))
       const dataset = env.dataset([quad])
@@ -311,7 +311,7 @@ _:b1 sh:path schema:name .
       expect(serialized).to.include('<foo> <bar> <baz> .')
     })
 
-    it('has import utility', async () => {
+    it('has import utility', async function () {
       // given
       const datasetCore = rdfDs.dataset()
       const quad = $rdf.quad($rdf.namedNode('foo'), $rdf.namedNode('bar'), $rdf.namedNode('baz'))

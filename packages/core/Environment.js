@@ -1,5 +1,5 @@
 import BaseEnvironment from '@rdfjs/environment/Environment.js'
-import { extend } from './lib/extend.js'
+import { extend } from './lib/extend.js' // eslint-disable-line import-x/no-unresolved
 
 export default class Environment {
   constructor(factoriesOrChild, { parent, bind = false } = {}) {
@@ -20,7 +20,8 @@ export default class Environment {
       for (const method of factory.exports || []) {
         if (bind) {
           this[method] = factory.prototype[method].bind(extended)
-        } else {
+        }
+        else {
           this[method] = factory.prototype[method]
         }
       }

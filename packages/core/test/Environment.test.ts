@@ -4,9 +4,9 @@ import BaseEnvironment from '@rdfjs/environment'
 import { expect } from 'chai'
 import Environment from '../Environment.js'
 
-describe('@zazuko/env-core', () => {
-  describe('Environment', () => {
-    it('can combine two environments', () => {
+describe('@zazuko/env-core', function () {
+  describe('Environment', function () {
+    it('can combine two environments', function () {
       // given
       const baseEnv = new Environment([DataFactory])
       const extendingEnv = new Environment([NamespaceFactory])
@@ -19,7 +19,7 @@ describe('@zazuko/env-core', () => {
       expect(ns.foo).to.deep.equal(rdf.namedNode('http://example.com/foo'))
     })
 
-    it('can combine two RDF/JS environments', () => {
+    it('can combine two RDF/JS environments', function () {
       // given
       const baseEnv = new BaseEnvironment([DataFactory])
       const extendingEnv = new BaseEnvironment([NamespaceFactory])

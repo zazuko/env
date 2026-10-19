@@ -2,8 +2,8 @@
 import { strictEqual, notStrictEqual, deepStrictEqual } from 'node:assert'
 import Environment from '../Environment.js'
 
-describe('Environment', () => {
-  it('should copy the given factories array to ._factories', () => {
+describe('Environment', function () {
+  it('should copy the given factories array to ._factories', function () {
     class FactoryA {}
     class FactoryB {}
     const factories = [FactoryA, FactoryB]
@@ -16,7 +16,7 @@ describe('Environment', () => {
     strictEqual(env._factories[1], FactoryB)
   })
 
-  it('should call the init function of each factory', () => {
+  it('should call the init function of each factory', function () {
     const called: unknown[] = []
     class FactoryA {
       init() {
@@ -34,7 +34,7 @@ describe('Environment', () => {
     deepStrictEqual(called, ['a', 'b'])
   })
 
-  it('should use the environment as this context for the init call', () => {
+  it('should use the environment as this context for the init call', function () {
     let context = null
     class Factory {
       init() {
@@ -47,7 +47,7 @@ describe('Environment', () => {
     strictEqual(context, env)
   })
 
-  it('should use the environment as this context for all methods if bind is true', () => {
+  it('should use the environment as this context for all methods if bind is true', function () {
     let context = null
     class Factory {
       a() {
@@ -67,7 +67,7 @@ describe('Environment', () => {
     strictEqual(context, env)
   })
 
-  it('should attach all methods defined in exports', () => {
+  it('should attach all methods defined in exports', function () {
     class Factory {
       a() {}
       b() {}
@@ -83,7 +83,7 @@ describe('Environment', () => {
     strictEqual(env.b, Factory.prototype.b)
   })
 
-  it('should not attach methods not contained in exports', () => {
+  it('should not attach methods not contained in exports', function () {
     class Factory {
       a() {}
       b() {}
@@ -98,14 +98,14 @@ describe('Environment', () => {
     strictEqual(typeof env.a, 'undefined')
   })
 
-  describe('.clone', () => {
-    it('should be a method', () => {
+  describe('.clone', function () {
+    it('should be a method', function () {
       const env = new Environment([])
 
       strictEqual(typeof env.clone, 'function')
     })
 
-    it('should return a new Environment instance', () => {
+    it('should return a new Environment instance', function () {
       const env = new Environment([])
 
       const result = env.clone()
@@ -114,7 +114,7 @@ describe('Environment', () => {
       notStrictEqual(result, env)
     })
 
-    it('should call the clone function of each factory', () => {
+    it('should call the clone function of each factory', function () {
       const called: unknown[] = []
       class FactoryA {
         clone() {
@@ -133,7 +133,7 @@ describe('Environment', () => {
       deepStrictEqual(called, ['a', 'b'])
     })
 
-    it('should use the environment as this context for the clone call', () => {
+    it('should use the environment as this context for the clone call', function () {
       let context = null
       class Factory {
         clone() {
@@ -147,7 +147,7 @@ describe('Environment', () => {
       strictEqual(context, clone)
     })
 
-    it('should use the environment as this context for the clone call', () => {
+    it('should use the correct environment for the clone call', function () {
       let other = null
       class Factory {
         clone(original: unknown) {

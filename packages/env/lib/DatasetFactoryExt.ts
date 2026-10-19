@@ -1,4 +1,4 @@
-import type { Readable } from 'stream'
+import type { Readable } from 'node:stream'
 import type { Stream } from '@rdfjs/types'
 import type { Environment } from '@rdfjs/environment/Environment.js'
 import type { FormatsFactory } from '@rdfjs/formats/Factory.js'
