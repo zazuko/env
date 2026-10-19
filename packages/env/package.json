@@ -59,9 +59,9 @@
   "devDependencies": {
     "@tpluscode/rdf-ns-builders": "^5",
     "@rdfjs-elements/formats-pretty": "^0.6.7",
-    "@types/chai": "^4.3.5",
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "chai": "^4.3.7",
-    "mocha": "^10.2.0"
+    "chai": "^6.3.0",
+    "mocha": "^12.0.3"
   }
 }
