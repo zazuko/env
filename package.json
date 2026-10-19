@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint . --quiet",
     "test": "npm test --workspaces --if-present",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "prepare": "husky"
   },
   "author": "Zazuko GmbH",
   "license": "MIT",
@@ -13,15 +14,15 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
+    "@changesets/cli": "^3.0.3",
     "@tpluscode/eslint-config": "^4.0.4",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "c8": "^8.0.1",
     "eslint": "^10.13.0",
     "eslint-import-resolver-typescript": "^4.4.5",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.3"
   },
