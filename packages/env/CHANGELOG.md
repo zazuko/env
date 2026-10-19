@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 3.0.2
+
+### Patch Changes
+
+- ba77973: Relaxed version range of `@tpluscode/rdf-ns-builders` to support v6 and moved to peerDependencies
+
 ## 3.0.1
 
 ### Patch Changes
