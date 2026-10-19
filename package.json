@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
+    "@changesets/cli": "^3.0.3",
     "@tpluscode/eslint-config": "^0.5.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
