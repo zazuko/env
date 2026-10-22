@@ -1,5 +1,11 @@
 # @zazuko/env
 
+## 3.0.3
+
+### Patch Changes
+
+- 07ffaf5: Made `@zazuko/prefixes` a peer dependency with more permissive version range
+
 ## 3.0.2
 
 ### Patch Changes
