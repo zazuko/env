@@ -44,5 +44,7 @@ jobs:
         # mcp-scan 0.4.3 is a rename placeholder; skill-check invokes mcp-scan.
         run: |
           uv tool install 'mcp-scan==0.4.2'
-          echo "$(uv tool dir --bin)" >> "$GITHUB_PATH"
-      - run: npm run lint:skills -- --format github --security-scan-runner local --no-installs --security-scan-verbose
+          echo "$GITHUB_WORKSPACE/.github/skill-check-bin" >> "$GITHUB_PATH"
+      - run: npm run lint:skills -- --format github --security-scan-runner local --security-scan-skills packages --no-installs --security-scan-verbose
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
