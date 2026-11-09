@@ -1,5 +1,13 @@
 # @zazuko/env
 
+## 3.0.4
+
+### Patch Changes
+
+- 95046c2: Include an AI skill for working with RDF datasets, namespaces, Clownface, browser imports, and serialization
+- Updated dependencies [95046c2]
+  - @zazuko/env-core@1.1.3
+
 ## 3.0.3
 
 ### Patch Changes
