@@ -8,7 +8,7 @@
     "prepack": "tsc"
   },
   "files": [
-    "SKILL.md",
+    "skills",
     "Environment.js",
     "Environment.d.ts",
     "lib/extend.js",

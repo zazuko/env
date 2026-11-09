@@ -69,6 +69,8 @@ If the requested serializer is absent, serialization returns canonical N-Quads i
 
 ## Extension
 
+For custom factories, environment composition, and TypeScript environment types, locate the installed `@zazuko/env-core` package and read `skills/core/SKILL.md` from that package.
+
 Construct `new Environment([MyFactory], { parent: rdf })` to add capabilities. Factories expose prototype methods through static `exports` and can initialize state in `init()`. Both run with the composed environment as `this`. Inherited objects remain shared.
 
-See [README.md](README.md) for more usage examples. When changing this package in the repository, check both main and browser behavior; run `npm test --workspace=@zazuko/env` and `npm run prepack --workspace=@zazuko/env` from the repository root.
+See [README.md](../../README.md) for more usage examples. When changing this package in the repository, check both main and browser behavior; run `npm test --workspace=@zazuko/env` and `npm run prepack --workspace=@zazuko/env` from the repository root.

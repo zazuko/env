@@ -45,4 +45,4 @@ Methods are unbound by default. Keep calls on the environment, or use `{ parent:
 - Assignments through the composed environment go to the child. Objects obtained from the parent remain shared; mutating them can affect other environments.
 - For TypeScript, let constructor inference combine factory capabilities. Import `DerivedEnvironment` or `CombinedEnvironment` as types from `@zazuko/env-core` when naming composed types. The base `Environment` type comes from `@rdfjs/environment/Environment.js`.
 
-See [README.md](README.md) for basic construction and named type examples. When changing composition in this repository, keep `Environment.js`, `Environment.d.ts`, and `lib/extend.ts` consistent; run `npm test --workspace=@zazuko/env-core` and `npm run prepack --workspace=@zazuko/env-core` from the repository root.
+See [README.md](../../README.md) for basic construction and named type examples. When changing composition in this repository, keep `Environment.js`, `Environment.d.ts`, and `lib/extend.ts` consistent; run `npm test --workspace=@zazuko/env-core` and `npm run prepack --workspace=@zazuko/env-core` from the repository root.

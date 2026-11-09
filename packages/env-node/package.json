@@ -16,7 +16,7 @@
     "url": "https://github.com/zazuko/env/issues"
   },
   "files": [
-    "SKILL.md",
+    "skills",
     "*.js",
     "*.d.ts",
     "CHANGELOG.md"

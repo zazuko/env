@@ -7,6 +7,8 @@ description: Use when reading or writing RDF files, fetching RDF in Node.js, or 
 
 Import the default environment from `@zazuko/env-node`. It extends `@zazuko/env` with filesystem utilities from `@zazuko/rdf-utils-fs`, fetch from `@zazuko/rdf-fetch`, and the default parsers and serializers from `@rdfjs/formats`.
 
+For dataset operations, namespaces, and Clownface graph manipulation, locate the installed `@zazuko/env` package and read `skills/env/SKILL.md` from that package. For custom factories, environment composition, and TypeScript environment types, also locate the installed `@zazuko/env-core` package and read `skills/core/SKILL.md` from that package.
+
 ## Read and write files
 
 Filesystem methods work with quad streams. Convert to or from datasets explicitly:
@@ -60,4 +62,4 @@ The package exports `create()`, the `NodeEnv` type, and a named `Environment` co
 
 `create()` adds filesystem and fetch factories over the shared base environment and imports formats into its inherited registry. It does not create a fully isolated environment; registry changes can affect other instances. Account for that when configuring formats in tests or applications.
 
-See [README.md](README.md) for format customization. When changing this package in the repository, run `npm test --workspace=@zazuko/env-node` and `npm run prepack --workspace=@zazuko/env-node` from the repository root. The existing test demonstrates a temporary Turtle file round trip.
+See [README.md](../../README.md) for format customization. When changing this package in the repository, run `npm test --workspace=@zazuko/env-node` and `npm run prepack --workspace=@zazuko/env-node` from the repository root. The existing test demonstrates a temporary Turtle file round trip.
