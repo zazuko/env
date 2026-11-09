@@ -1,5 +1,11 @@
 # @zazuko/env-core
 
+## 1.1.4
+
+### Patch Changes
+
+- 1bff223: Align skill names with their package directories and clarify when each skill applies.
+
 ## 1.1.3
 
 ### Patch Changes

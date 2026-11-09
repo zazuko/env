@@ -1,6 +1,6 @@
 {
   "name": "@zazuko/env-node",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Zazuko's RDF/JS Environment to use in NodeJs",
   "type": "module",
   "main": "index.js",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@zazuko/rdf-fetch": "^1.0.2",
     "@rdfjs/formats": "^4.0.0",
-    "@zazuko/env": "^3.0.4",
+    "@zazuko/env": "^3.0.5",
     "@zazuko/rdf-utils-fs": "^3.3.0"
   },
   "peerDependencies": {
