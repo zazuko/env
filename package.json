@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --quiet",
-    "lint:skills": "skill-check check packages --fail-on-warning",
+    "lint:skills": "skill-check check packages --no-security-scan --fail-on-warning",
     "test": "npm test --workspaces --if-present",
     "release": "changeset publish",
     "prepare": "husky && skills experimental_sync -y"

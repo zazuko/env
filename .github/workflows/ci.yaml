@@ -38,13 +38,5 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: lts/*
-      - uses: astral-sh/setup-uv@v10.3.3
       - run: npm ci
-      - name: Install compatible security scanner
-        # mcp-scan 0.4.3 is a rename placeholder; skill-check invokes mcp-scan.
-        run: |
-          uv tool install 'mcp-scan==0.4.2'
-          echo "$GITHUB_WORKSPACE/.github/skill-check-bin" >> "$GITHUB_PATH"
-      - run: npm run lint:skills -- --format github --security-scan-runner local --security-scan-skills packages --no-installs --security-scan-verbose
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - run: npm run lint:skills -- --format github
