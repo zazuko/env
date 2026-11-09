@@ -1,5 +1,13 @@
 # @zazuko/env-node
 
+## 3.1.1
+
+### Patch Changes
+
+- 95046c2: Include an AI skill for reading and writing RDF files, fetching RDF in Node.js, and customizing bundled formats
+- Updated dependencies [95046c2]
+  - @zazuko/env@3.0.4
+
 ## 3.1.0
 
 ### Minor Changes

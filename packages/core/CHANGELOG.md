@@ -1,5 +1,11 @@
 # @zazuko/env-core
 
+## 1.1.3
+
+### Patch Changes
+
+- 95046c2: Include an AI skill for composing RDF/JS environments, implementing custom factories, and typing derived environments.
+
 ## 1.1.2
 
 ### Patch Changes
