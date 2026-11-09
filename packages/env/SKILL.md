@@ -1,6 +1,6 @@
 ---
-name: zazuko-env
-description: Use @zazuko/env for RDF/JS terms, datasets, namespaces, Clownface graph manipulation, and RDF serialization. Covers browser imports and extending the default environment; use @zazuko/env-node for filesystem and RDF fetch support.
+name: env
+description: Use when working with @zazuko/env for RDF/JS terms, datasets, namespaces, Clownface graph manipulation, or RDF serialization. Covers browser imports and extending the default environment; use @zazuko/env-node for filesystem and RDF fetch support.
 ---
 
 # Working with @zazuko/env

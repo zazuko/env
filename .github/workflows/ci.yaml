@@ -30,3 +30,18 @@ jobs:
       - uses: actions/setup-node@v7
       - run: npm ci
       - run: npm run prepack --workspaces --if-present
+
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - uses: astral-sh/setup-uv@v10
+      - run: npm ci
+      - run: npm run lint:skills -- --format github
+      - name: Scan skills for security issues
+        run: uvx snyk-agent-scan --ci packages/*/SKILL.md
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

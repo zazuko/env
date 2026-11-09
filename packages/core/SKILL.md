@@ -1,6 +1,6 @@
 ---
-name: zazuko-env-core
-description: Create and extend RDF/JS environments with @zazuko/env-core, including custom factories and TypeScript environment types. Use for factory composition; use @zazuko/env for a ready-made RDF environment.
+name: core
+description: Use when composing or extending RDF/JS environments with @zazuko/env-core, including custom factories and TypeScript environment types. Use @zazuko/env for a ready-made RDF environment.
 ---
 
 # RDF/JS environment composition

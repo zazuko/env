@@ -1,6 +1,6 @@
 ---
-name: zazuko-env-node
-description: Use @zazuko/env-node to read and write RDF files, fetch RDF in Node.js, and serialize datasets with bundled formats. Use for Node.js RDF I/O; use @zazuko/env/web.js for browser code.
+name: env-node
+description: Use when reading or writing RDF files, fetching RDF in Node.js, or serializing datasets with bundled formats using @zazuko/env-node. Use @zazuko/env/web.js for browser code.
 ---
 
 # RDF I/O in Node.js
