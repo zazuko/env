@@ -1,5 +1,13 @@
 # @zazuko/env-node
 
+## 3.1.3
+
+### Patch Changes
+
+- 78139c9: Move packaged skills into dedicated `skills/<name>/` directories and update package file lists so `skills experimental_sync` discovers them. Add references from the env and env-node skills to dependency skills for shared RDF operations and environment composition.
+- Updated dependencies [78139c9]
+  - @zazuko/env@3.0.6
+
 ## 3.1.2
 
 ### Patch Changes
