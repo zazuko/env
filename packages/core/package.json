@@ -27,5 +27,9 @@
     "@types/rdfjs__namespace": "^2.0.10",
     "chai": "^6",
     "mocha": "^12"
+  },
+  "repository": {
+    "url": "https://github.com/zazuko/env",
+    "directory": "packages/core"
   }
 }
