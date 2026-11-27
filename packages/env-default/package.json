@@ -1,0 +1,37 @@
+{
+  "name": "@zazuko/env-default",
+  "version": "0.0.0",
+  "description": "A site-wide default RDF/JS environment",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "prepack": "tsc",
+    "typecheck": "tsc -p type-tests/tsconfig.json --noEmit && tsc -p type-tests/default-tsconfig.json --noEmit",
+    "test": "mocha --package ../../package.json"
+  },
+  "repository": {
+    "url": "git://github.com/zazuko/env.git",
+    "directory": "packages/env-default"
+  },
+  "bugs": {
+    "url": "https://github.com/zazuko/env/issues"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "rdfjs",
+    "environment"
+  ],
+  "author": "Zazuko GmbH",
+  "license": "MIT",
+  "peerDependencies": {
+    "@rdfjs/environment": "^1.0.0",
+    "@types/rdfjs__environment": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^12.0.3"
+  }
+}
